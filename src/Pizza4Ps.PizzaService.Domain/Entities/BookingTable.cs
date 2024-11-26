@@ -2,16 +2,16 @@
 
 namespace Pizza4Ps.PizzaService.Domain.Entities
 {
-	public class TableForBooking : EntityAuditBase<Guid>
+    public class BookingTable : EntityAuditBase<Guid>
     {
         public DateTime OnholdTime { get; set; }
 
         public virtual ICollection<Table> Tables { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
 
-        private TableForBooking() { }
+        private BookingTable() { }
 
-        public TableForBooking(Guid id, DateTime onholdtime)
+        public BookingTable(Guid id, DateTime onholdtime)
         {
             Id = id;
             OnholdTime = onholdtime;

@@ -15,7 +15,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<OrderInTable> OrdersInTable { get; set; }
         
-        public virtual TableForBooking TableforBooking { get; set; }
+        public virtual BookingTable TableforBooking { get; set; }
 
         private Table()
         {

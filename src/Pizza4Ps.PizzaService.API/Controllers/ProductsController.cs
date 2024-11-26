@@ -4,6 +4,7 @@ using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.Models;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Commands.ProductCommand.CreateProduct;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Commands.ProductCommand.UpdateProduct;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Queries.ProductQueries.GetProduct;
 using Pizza4Ps.PizzaService.Persistence.Helpers;
 
@@ -46,5 +47,29 @@ namespace Pizza4Ps.PizzaService.API.Controllers
                 StatusCode = StatusCodes.Status201Created
             });
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProductAsync(Guid id, [FromBody] UpdateProductCommand command)
+        {
+
+            var result = await _sender.Send(command);
+            if (!result)
+            {
+                return NotFound(new ApiResponse<string>
+                {
+                    Result = null,
+                    Message = "Product not found.",
+                    StatusCode = StatusCodes.Status404NotFound
+                });
+            }
+
+            return Ok(new ApiResponse<string>
+            {
+                Result = null,
+                Message = MESSSAGE.UPDATED_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
     }
 }
