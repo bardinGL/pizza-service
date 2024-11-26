@@ -16,14 +16,9 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             _unitOfWork = unitOfWork;
             _productRepository = productRepository;
         }
+        
         public async Task<Guid> CreateProductAsync(Product product)
         {
-            //var product = await _productRepository.GetAll().ToListAsync();
-
-            //if (product == null)
-            //{
-            //    throw new Exception();
-            //}
             var productEntity = new Product(product.Id, product.Name, product.Price, product.Description, product.CategoryId);
             _productRepository.Add(productEntity);
             await _unitOfWork.SaveChangeAsync();

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Pizza4Ps.PizzaService.Persistence.Helpers;
 using System;
 using System.Collections.Generic;
@@ -38,13 +39,27 @@ namespace Pizza4Ps.PizzaService.Persistence.Intercepter
                     if (entry.Property("CreatedBy") != null)
                         entry.Property("CreatedBy").CurrentValue = userId != null ? userId : null;
                 }
-                else if (entry.State == EntityState.Modified)
+                else if (entry.State == EntityState.Modified && entry.Property("IsDeleted").IsModified == false)
                 {
                     if (entry.Property("ModifiedDate") != null)
                         entry.Property("ModifiedDate").CurrentValue = DateTimeOffset.UtcNow;
 
                     if (entry.Property("ModifiedBy") != null)
                         entry.Property("ModifiedBy").CurrentValue = userId != null ? userId : null;
+                }
+                else if (entry.State == EntityState.Modified && entry.Property("IsDeleted").IsModified == true && (bool) entry.Property("IsDeleted").CurrentValue == true)
+                {
+                    if (entry.Property("DeletedBy") != null)
+                        entry.Property("DeletedBy").CurrentValue = userId != null ? userId : null;
+                    if (entry.Property("DeletedAt") != null)
+                        entry.Property("DeletedAt").CurrentValue = DateTimeOffset.UtcNow;
+                }
+                else if (entry.State == EntityState.Modified && entry.Property("IsDeleted").IsModified == true && (bool) entry.Property("IsDeleted").CurrentValue == false)
+                {
+                    if (entry.Property("DeletedBy") != null)
+                        entry.Property("DeletedBy").CurrentValue = null;
+                    if (entry.Property("DeletedAt") != null)
+                        entry.Property("DeletedAt").CurrentValue = null;
                 }
             }
 

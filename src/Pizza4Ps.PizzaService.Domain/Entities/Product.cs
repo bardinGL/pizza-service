@@ -22,6 +22,12 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             Description = description;
             CategoryId = categoryId;
         }
-
+        public void UpdateProduct(string name, decimal price, string description, Guid categoryId)
+        {
+            Name = name;
+            Price = price;
+            Description = description;
+            CategoryId = categoryId;
+        }
     }
 }

@@ -1,12 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Pizza4Ps.PizzaService.Persistence.Helpers;
 using StructureCodeSolution.Domain.Abstractions;
 using StructureCodeSolution.Domain.Abstractions.Repositories.RepositoryBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StructureCodeSolution.Persistence
 {
@@ -55,8 +52,7 @@ namespace StructureCodeSolution.Persistence
         }
 
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default, params Expression<Func<TEntity, object>>[] includeProperties)
-            => await GetAsNoTrackingAsync(null, includeProperties)
-            .AsTracking()
+            => await GetAsTrackingAsync(null, includeProperties)
             .SingleOrDefaultAsync(x => x.Id.Equals(id), cancellationToken);
 
 
@@ -78,5 +74,43 @@ namespace StructureCodeSolution.Persistence
                 items = items.Where(predicate);
             return await items.CountAsync();
         }
+
+        public void SoftDelete(TEntity entity)
+        {
+            var entityType = typeof(TEntity);
+            // Lấy thông tin người dùng hiện tại
+            // Tìm thuộc tính IsDeleted
+            var isDeletedProperty = entityType.GetProperty("IsDeleted");
+            if (isDeletedProperty != null && isDeletedProperty.PropertyType == typeof(bool))
+            {
+                isDeletedProperty.SetValue(entity, true);
+            }
+            _dbContext.Set<TEntity>().Update(entity);
+        }
+
+        public async Task RestoreAsync(TKey id)
+        {
+            var entity = await _dbContext.Set<TEntity>().FindAsync(id);
+            if (entity == null) throw new KeyNotFoundException("Entity not found");
+            var entityType = typeof(TEntity);
+            // Lấy thông tin người dùng hiện tại
+            // Tìm thuộc tính IsDeleted
+            var isDeletedProperty = entityType.GetProperty("IsDeleted");
+            if (isDeletedProperty != null && isDeletedProperty.PropertyType == typeof(bool))
+            {
+                isDeletedProperty.SetValue(entity, false);
+            }
+            _dbContext.Set<TEntity>().Update(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task HardDeleteAsync(TKey id)
+        {
+            var entity = await _dbContext.Set<TEntity>().FindAsync(id);
+            if (entity == null) throw new KeyNotFoundException("Entity not found");
+            _dbContext.Set<TEntity>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+
     }
 }

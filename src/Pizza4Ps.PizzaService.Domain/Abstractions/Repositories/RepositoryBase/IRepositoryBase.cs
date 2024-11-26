@@ -17,7 +17,9 @@ namespace StructureCodeSolution.Domain.Abstractions.Repositories.RepositoryBase
         Task<long> CountAsync(Expression<Func<TEntity, bool>>? predicate = null);
         void Add(TEntity entity);
         void Update(TEntity entity);
-        void Delete(TEntity entity);
+        void SoftDelete(TEntity entity);
+        Task HardDeleteAsync(TKey id);
+        Task RestoreAsync(TKey id);
         void RemoveMultiple(List<TEntity> entities);
     }
 }

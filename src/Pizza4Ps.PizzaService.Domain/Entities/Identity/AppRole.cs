@@ -21,5 +21,6 @@ namespace StructureCodeSolution.Domain.Entities.Identity
         public Guid? ModifiedBy { get; set; }
         public bool IsDeleted { get; set; }
         public DateTimeOffset? DeletedAt { get; set; }
+        public Guid? DeletedBy { get; set; }
     }
 }

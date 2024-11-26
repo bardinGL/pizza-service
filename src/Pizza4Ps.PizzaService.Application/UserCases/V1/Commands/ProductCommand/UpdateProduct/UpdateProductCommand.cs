@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Pizza4Ps.PizzaService.Application.Abstractions.BaseCommand;
 using System;
 using System.Collections.Generic;
 using System.Linq;

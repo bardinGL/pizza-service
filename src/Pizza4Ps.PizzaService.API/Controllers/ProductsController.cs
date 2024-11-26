@@ -28,7 +28,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         {
             var userId = _httpContextAccessor.HttpContext.GetCurrentUserId();
             var result = await _sender.Send(command);
-            return Ok(new ApiResponse<Guid>
+            return Ok(new ApiResponse
             {
                 Result = result,
                 Message = MESSSAGE.CREATED_SUCCESS,
@@ -40,10 +40,33 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         public async Task<IActionResult> GetProductAsync([FromQuery] GetProductQuery query)
         {
             var result = await _sender.Send(query);
-            return Ok(new ApiResponse<PaginatedResult<GetProductQueryResponse>>
+            return Ok(new ApiResponse
             {
                 Result = result,
                 Message = MESSSAGE.CREATED_SUCCESS,
+                StatusCode = StatusCodes.Status201Created
+            });
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProductAsync([FromQuery] UpdateProductCommand command)
+        {
+            //var result = await _sender.Send(command);
+            return Ok(new ApiResponse
+            {
+                //Result = result,
+                Message = MESSSAGE.UPDATED_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
+        [HttpPut("set-is-deleted/{id}")]
+        public async Task<IActionResult> SoftDeleteProductAsync(Guid id)
+        {
+            await _sender.Send(new SoftDeleteProductCommand { Id = id});
+            return Ok(new ApiResponse
+            {
+                Message = MESSSAGE.DELETED_SUCCESS,
                 StatusCode = StatusCodes.Status201Created
             });
         }

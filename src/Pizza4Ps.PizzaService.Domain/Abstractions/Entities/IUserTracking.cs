@@ -10,5 +10,6 @@ namespace StructureCodeSolution.Domain.Abstractions.Entities
     {
         Guid? CreatedBy { get; set; }
         Guid? ModifiedBy { get; set; }
+        Guid? DeletedBy { get; set; }
     }
 }
