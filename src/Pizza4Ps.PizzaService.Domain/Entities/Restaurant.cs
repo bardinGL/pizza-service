@@ -1,14 +1,9 @@
 ﻿using Pizza4Ps.PizzaService.Domain.Enums;
 using StructureCodeSolution.Domain.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Domain.Entities
 {
-    public class Restaurant : EntityAuditBase<Guid>
+	public class Restaurant : EntityAuditBase<Guid>
     {
         public string Name { get; set; }
         public string Description { get; set; }
