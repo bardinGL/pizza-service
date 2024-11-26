@@ -2,8 +2,7 @@
 
 namespace Pizza4Ps.PizzaService.Domain.Entities
 {
-    public class OrderItemOption : EntityAuditBase<Guid>
-    {
-
-    }
+	public class StaffZone : EntityAuditBase<Guid>
+	{
+	}
 }
