@@ -30,6 +30,29 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             return productEntity.Id;
         }
 
+        public async Task<bool> UpdateProductAsync(Product product)
+        {
+            var existingProduct = await _productRepository.GetByIdAsync(product.Id);
+
+            if (existingProduct == null)
+            {
+                throw new Exception("Product not found");
+            }
+
+            var updatedProduct = new Product(
+                product.Id,
+                product.Name,
+                product.Price,
+                product.Description,
+                product.CategoryId
+            );
+
+            _productRepository.Update(updatedProduct);
+            await _unitOfWork.SaveChangeAsync();
+            return true;
+        }
+
+
 
     }
 }

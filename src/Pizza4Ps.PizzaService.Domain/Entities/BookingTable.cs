@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Domain.Entities
 {
-    public class TableforBooking : EntityAuditBase<Guid>
+    public class BookingTable : EntityAuditBase<Guid>
     {
         public DateTime OnholdTime { get; set; }
 
         public virtual ICollection<Table> Tables { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
 
-        private TableforBooking() { }
+        private BookingTable() { }
 
-        public TableforBooking(Guid id, DateTime onholdtime)
+        public BookingTable(Guid id, DateTime onholdtime)
         {
             Id = id;
             OnholdTime = onholdtime;
