@@ -5,7 +5,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
 {
     public class StaffSchedule : EntityAuditBase<Guid>
     {
-        public Guid StaffId { get; set; }
+        public int StaffCount { get; set; }
         public DateTimeOffset Date {  get; set; }
         public ConfigEnum Shift { get; set; }
     }

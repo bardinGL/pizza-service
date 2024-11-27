@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Domain.Enums
 {
-    public enum PaymentTypeEnum
+    public enum BranchTypeEnum
     {
-        Pending,
-        Succeed
+        Unavailable,
+        Available,
+        Terminated
     }
 }

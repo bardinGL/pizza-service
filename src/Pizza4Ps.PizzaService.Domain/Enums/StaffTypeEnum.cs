@@ -4,6 +4,9 @@
     {
         public enum StaffType
         {
+            Recipient,
+            Waiter,
+            Chef
         }
     }
 }

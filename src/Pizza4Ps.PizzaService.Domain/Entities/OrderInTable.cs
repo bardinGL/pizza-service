@@ -9,16 +9,18 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
 {
     public class OrderInTable : EntityAuditBase<Guid>
     {
-        public virtual ICollection<Table> Tables { get; set; }
+        public Guid TableID { get; set; }
+        public virtual Table Table { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
 
         private OrderInTable()
         {
         }
 
-        public OrderInTable(Guid id, Guid tableId, Guid orderId)
+        public OrderInTable(Guid id, Guid tableId)
         {
             Id = id;
+            TableID = tableId;
         }
     }
 }

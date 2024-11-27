@@ -11,15 +11,19 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
     public class Payment : EntityAuditBase<Guid>
     {
         public string Name { get; set; } = "In Cash";
+        public decimal Amount { get; set; }
         
-        public PaymentTypeEnum PaymentTypeEnum { get; set; } = PaymentTypeEnum.Cash;
+        public PaymentMethodTypeEnum PaymentMethod { get; set; } = PaymentMethodTypeEnum.Cash;
+        public PaymentTypeEnum PaymentStatus {  get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public Payment() { }
-        public Payment(Guid id ,string name, PaymentTypeEnum paymentTypeEnum)
+        public Payment(Guid id ,string name, PaymentMethodTypeEnum paymentMethos, decimal amount, PaymentTypeEnum paymentStatus)
         {
             Id = id;
             Name = name;
-            PaymentTypeEnum = paymentTypeEnum;
+            PaymentMethod = paymentMethos;
+            Amount = amount;
+            PaymentStatus = paymentStatus;
         }
     }
 }

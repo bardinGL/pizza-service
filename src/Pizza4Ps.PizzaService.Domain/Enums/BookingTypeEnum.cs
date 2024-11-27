@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Domain.Enums
 {
-    public enum RestaurantTypeEnum
+    public enum BookingTypeEnum
     {
-        Unavailable,
         Available,
-        Terminated
+        Onhold
     }
 }

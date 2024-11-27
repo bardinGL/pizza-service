@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Domain.Enums
 {
-    public enum PaymentTypeEnum
+    public enum VoucherTypeEnum
     {
-        Pending,
-        Succeed
+        Amount,
+        Percentage
     }
 }

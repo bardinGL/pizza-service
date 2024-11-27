@@ -4,6 +4,7 @@ using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.Models;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Commands.ProductCommand.CreateProduct;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Commands.ProductCommand.SoftDeleteProduct;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Commands.ProductCommand.UpdateProduct;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Queries.ProductQueries.GetProduct;
 using Pizza4Ps.PizzaService.Persistence.Helpers;

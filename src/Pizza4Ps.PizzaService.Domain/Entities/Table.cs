@@ -10,8 +10,11 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         public int SeatingCapacity { get; set; }
         public Guid TableforBookingId { get; set; }
         public Guid ZoneId { get; set; }
+        public Guid BranchId { get; set; }
+
         public virtual Zone Zone { get; set; }
-        
+        public virtual Branch Branch { get; set; }
+
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<OrderInTable> OrdersInTable { get; set; }
         
@@ -21,7 +24,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         {
         }
 
-        public Table(Guid id, string tableNumber, TableTypeEnum tablestatus, int seatingCapacity, Guid zoneId, Zone zone, Guid tableforBookingId)
+        public Table(Guid id, string tableNumber, TableTypeEnum tablestatus, int seatingCapacity, Guid zoneId, Zone zone, Guid tableforBookingId, Guid branchId)
         {
             Id = id;
             TableNumber = tableNumber;
@@ -29,6 +32,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             SeatingCapacity = seatingCapacity;
             ZoneId = zoneId;
             TableforBookingId = tableforBookingId;
+            BranchId = branchId;
         }
     }
 }
