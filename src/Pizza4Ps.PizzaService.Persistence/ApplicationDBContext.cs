@@ -31,7 +31,7 @@ namespace Pizza4Ps.PizzaService.Persistence
             builder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
         }
 
-        private LambdaExpression? GenerateQueryFilterLambda (Type type)
+        private LambdaExpression? GenerateQueryFilterLambda(Type type)
         {
             var parameter = Expression.Parameter(type, "w");
             var falseConstantValue = Expression.Constant(false);
@@ -44,5 +44,31 @@ namespace Pizza4Ps.PizzaService.Persistence
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Config> Configs { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Notification> Notification { get; set; }
+        public DbSet<Option> Option { get; set; }
+        public DbSet<OptionItem> OptionItems { get; set; }
+        public DbSet<OptionItemOrderItem> OptionItemOrderItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderInTable> OrderItem { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+
+
     }
 }
