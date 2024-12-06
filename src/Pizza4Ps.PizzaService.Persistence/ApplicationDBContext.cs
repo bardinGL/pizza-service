@@ -53,22 +53,7 @@ namespace Pizza4Ps.PizzaService.Persistence
         public DbSet<OptionItemOrderItem> OptionItemOrderItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderInTable> OrderItem { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-
-
+        public DbSet<Table> Tables { get; set; }
+        public DbSet<TableBooking> TableBookingsBookings { get; set; }
     }
 }
