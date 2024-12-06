@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="DependencyInjection\Options\" />
     <Folder Include="UserCases\V1\CategoryUserCases\Queries\" />
+    <Folder Include="UserCases\V1\UserUserCases\Queries\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 

@@ -1,6 +1,6 @@
 ﻿namespace Pizza4Ps.PizzaService.Domain.Enums
 {
-    public class StaffEnum
+    public class StaffTypeEnum
     {
         public enum StaffType
         {
