@@ -10,7 +10,6 @@ namespace Pizza4Ps.PizzaService.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Zone> builder)
         {
             builder.ToTable(TableNames.Zone);
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
@@ -33,6 +32,11 @@ namespace Pizza4Ps.PizzaService.Persistence.Configurations
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(x => x.StaffZones)
+                .WithOne(x => x.Zone)
+                .HasForeignKey(x => x.ZoneId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(x => x.StaffSchedules)
                 .WithOne(x => x.Zone)
                 .HasForeignKey(x => x.ZoneId)
                 .OnDelete(DeleteBehavior.Cascade);

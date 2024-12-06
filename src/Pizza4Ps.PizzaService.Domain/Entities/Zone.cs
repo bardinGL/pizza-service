@@ -12,6 +12,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
 
         public virtual ICollection<Table> Tables { get; set; }
         public virtual ICollection<StaffZone> StaffZones { get; set; }
+        public virtual ICollection<StaffSchedule> StaffSchedules { get; set; }
 
         private Zone()
         {
