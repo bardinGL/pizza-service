@@ -18,18 +18,18 @@ namespace Pizza4Ps.PizzaService.Persistence
             _auditInterceptor = auditInterceptor;
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            var softDeleteEntities = typeof(ISoftDelete).Assembly.GetTypes()
-                .Where(type => typeof(ISoftDelete).IsAssignableFrom(type)
-                && type.IsClass
-                && type.IsAbstract);
-            foreach (var softDeleteEntity in softDeleteEntities)
-            {
-                builder.Entity(softDeleteEntity).HasQueryFilter(GenerateQueryFilterLambda(softDeleteEntity));
-            }
-            builder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
-        }
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    var softDeleteEntities = typeof(ISoftDelete).Assembly.GetTypes()
+        //        .Where(type => typeof(ISoftDelete).IsAssignableFrom(type)
+        //        && type.IsClass
+        //        && type.IsAbstract);
+        //    foreach (var softDeleteEntity in softDeleteEntities)
+        //    {
+        //        builder.Entity(softDeleteEntity).HasQueryFilter(GenerateQueryFilterLambda(softDeleteEntity));
+        //    }
+        //    builder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
+        //}
 
         private LambdaExpression? GenerateQueryFilterLambda(Type type)
         {
@@ -42,18 +42,27 @@ namespace Pizza4Ps.PizzaService.Persistence
         }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Config> Configs { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Notification> Notification { get; set; }
-        public DbSet<Option> Option { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Option> Options { get; set; }
         public DbSet<OptionItem> OptionItems { get; set; }
         public DbSet<OptionItemOrderItem> OptionItemOrderItems { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderInTable> OrderItem { get; set; }
+        public DbSet<OrderInTable> OrderItems { get; set; }
+        public DbSet<OrderVoucher> OrderVouchers { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<StaffSchedule> StaffSchedules { get; set; }
+        public DbSet<StaffZone> StaffZones { get; set; }
+        public DbSet<StaffZoneSchedule> StaffZoneSchedules { get; set; }
         public DbSet<Table> Tables { get; set; }
-        public DbSet<TableBooking> TableBookingsBookings { get; set; }
+        public DbSet<TableBooking> TableBookings { get; set; }
+        public DbSet<Voucher> Vouchers { get; set; }
+        public DbSet<Zone> Zones { get; set; }
     }
 }
