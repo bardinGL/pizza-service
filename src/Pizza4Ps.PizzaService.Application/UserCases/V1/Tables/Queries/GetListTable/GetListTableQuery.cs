@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Pizza4Ps.PizzaService.Application.DTOs.Tables;
 
 namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTable
 {
-    internal class GetListTableQuery
+    public class GetListTableQuery : IRequest<GetListTableQueryResponse>
     {
+        public GetListTableDto GetListTableDto { get; set; }
     }
 }

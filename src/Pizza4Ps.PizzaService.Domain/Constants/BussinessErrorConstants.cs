@@ -31,5 +31,10 @@
         {
             public const string VOUCHER_NOT_FOUND = "Voucher không tìm thấy";
         }
+
+        public class TableErrorConstant
+        {
+            public const string TABLE_NOT_FOUND = "Bàn không tìm thấy";
+        }
     }
 }

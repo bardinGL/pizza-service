@@ -1,0 +1,49 @@
+﻿using AutoMapper;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Pizza4Ps.PizzaService.Application.DTOs.Products;
+using Pizza4Ps.PizzaService.Application.DTOs.Tables;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Products.Queries.GetListProduct;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTable;
+using Pizza4Ps.PizzaService.Domain.Abstractions.Repositories;
+using Pizza4Ps.PizzaService.Domain.Constants;
+using Pizza4Ps.PizzaService.Domain.Exceptions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Dynamic.Core;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTableIgnoreQueryFilter
+{
+    public class GetListTableIgnoreQueryFilterQueryHandler : IRequestHandler<GetListTableIgnoreQueryFilterQuery, GetListTableIgnoreQueryFilterQueryResponse>
+    {
+        private readonly IMapper _mapper;
+        private readonly ITableRepository _tableRepository;
+
+        public GetListTableIgnoreQueryFilterQueryHandler(IMapper mapper, ITableRepository tableRepository)
+        {
+            _mapper = mapper;
+            _tableRepository = tableRepository;
+        }
+
+        public async Task<GetListTableIgnoreQueryFilterQueryResponse> Handle(GetListTableIgnoreQueryFilterQuery request, CancellationToken cancellationToken)
+        {
+            var query = _tableRepository.GetListAsNoTracking(
+                x => (request.GetListTableIgnoreQueryFilterDto.TableNumber == null || x.TableNumber.Contains(request.GetListTableIgnoreQueryFilterDto.TableNumber))
+                && (request.GetListTableIgnoreQueryFilterDto.Capacity == null || x.Capacity.Contains(request.GetListTableIgnoreQueryFilterDto.Capacity))
+                && (request.GetListTableIgnoreQueryFilterDto.Status == null || x.Status == request.GetListTableIgnoreQueryFilterDto.Status)
+                && (request.GetListTableIgnoreQueryFilterDto.ZoneId == null || x.ZoneId == request.GetListTableIgnoreQueryFilterDto.ZoneId)
+                , includeProperties: request.GetListTableIgnoreQueryFilterDto.includeProperties);
+            var entities = await query
+                .OrderBy(request.GetListTableIgnoreQueryFilterDto.SortBy)
+                .Skip(request.GetListTableIgnoreQueryFilterDto.SkipCount).Take(request.GetListTableIgnoreQueryFilterDto.TakeCount).ToListAsync();
+            if (!entities.Any())
+                throw new BusinessException(BussinessErrorConstants.TableErrorConstant.TABLE_NOT_FOUND);
+            var result = _mapper.Map<List<TableDto>>(entities);
+            var totalCount = await query.CountAsync();
+            return new GetListTableIgnoreQueryFilterQueryResponse(result, totalCount);
+        }
+    }
+}
