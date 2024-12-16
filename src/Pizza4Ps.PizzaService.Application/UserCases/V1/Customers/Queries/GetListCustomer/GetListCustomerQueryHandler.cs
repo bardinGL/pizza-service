@@ -4,6 +4,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Pizza4Ps.PizzaService.Application.DTOs.Customers;
 using Pizza4Ps.PizzaService.Domain.Abstractions.Repositories;
+using Pizza4Ps.PizzaService.Domain.Constants;
+using Pizza4Ps.PizzaService.Domain.Exceptions;
 
 namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Customers.Queries.GetListCustomer
 {
@@ -20,15 +22,15 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Customers.Queries.GetLi
 
         public async Task<GetListCustomerQueryResponse> Handle(GetListCustomerQuery request, CancellationToken cancellationToken)
         {
-            var query = _customerRepository.GetListAsNoTracking(includeProperties: request.includeProperties).IgnoreQueryFilters()
-                .Where(
-                    x => (request.FullName == null || x.FullName.Contains(request.FullName))
-                    && (request.Phone == null || x.Phone.Contains(request.Phone))
-                    && x.IsDeleted == request.IsDeleted);
+            var query = _customerRepository.GetListAsNoTracking(
+                x => (request.GetListCustomerDto.FullName == null || x.FullName.Contains(request.GetListCustomerDto.FullName))
+                && (request.GetListCustomerDto.Phone == null || x.Phone.Contains(request.GetListCustomerDto.Phone)),
+                includeProperties: request.GetListCustomerDto.includeProperties);
             var entities = await query
-                .OrderBy(request.SortBy)
-                .Skip(request.SkipCount).Take(request.TakeCount)
-                .ToListAsync();
+                .OrderBy(request.GetListCustomerDto.SortBy)
+                .Skip(request.GetListCustomerDto.SkipCount).Take(request.GetListCustomerDto.TakeCount).ToListAsync();
+            if (!entities.Any())
+                throw new BusinessException(BussinessErrorConstants.CustomerErrorConstant.CUSTOMER_NOT_FOUND);
             var result = _mapper.Map<List<CustomerDto>>(entities);
             var totalCount = await query.CountAsync();
             return new GetListCustomerQueryResponse(result, totalCount);

@@ -7,7 +7,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
     {
         public decimal Amount { get; set; } = decimal.Zero;
         public PaymentMethodEnum PaymentMethod { get; set; } = PaymentMethodEnum.Cash;
-        public string? Status { get; set; }
+        public string Status { get; set; }
         public Guid OrderId { get; set; }
 
         public virtual Order Order { get; set; }
@@ -16,7 +16,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         {
         }
 
-        public Payment(Guid id,decimal amount, PaymentMethodEnum paymentMethod, string? status, Guid orderId)
+        public Payment(Guid id, decimal amount, PaymentMethodEnum paymentMethod, string? status, Guid orderId)
         {
             Id = id;
             Amount = amount;

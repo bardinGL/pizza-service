@@ -12,14 +12,11 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         public StaffTypeEnum.StaffType StaffType { get; set; }
         public StaffTypeEnum.StaffStatus Status { get; set; }
 
-        public virtual ICollection<StaffZone> StaffZones { get; set; }
-        public virtual ICollection<StaffSchedule> StaffSchedules { get; set; }
-
         public Staff()
         {
         }
 
-        public Staff(Guid id,string code, string name, string phone, string email, StaffTypeEnum.StaffType staffType, StaffTypeEnum.StaffStatus status)
+        public Staff(Guid id, string code, string name, string phone, string email, StaffTypeEnum.StaffType staffType, StaffTypeEnum.StaffStatus status)
         {
             Id = id;
             Code = code;
@@ -30,14 +27,14 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             Status = status;
         }
 
-		internal void UpdateStaff(string code, string name, string phone, string email, StaffTypeEnum.StaffType staffType, StaffTypeEnum.StaffStatus status)
-		{
-			Code = code;
-			Name = name;
-			Phone = phone;
-			Email = email;
-			StaffType = staffType;
-			Status = status;
-		}
-	}
+        internal void UpdateStaff(string code, string name, string phone, string email, StaffTypeEnum.StaffType staffType, StaffTypeEnum.StaffStatus status)
+        {
+            Code = code;
+            Name = name;
+            Phone = phone;
+            Email = email;
+            StaffType = staffType;
+            Status = status;
+        }
+    }
 }

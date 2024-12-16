@@ -15,6 +15,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Products.Queries.GetPro
             _mapper = mapper;
             _productRepository = productRepository;
         }
+
         public async Task<GetProductByIdQueryResponse> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             var entity = await _productRepository.GetSingleByIdAsync(request.Id, request.includeProperties);

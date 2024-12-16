@@ -21,8 +21,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.CreateT
                 request.CreateTableDto.TableNumber,
                 request.CreateTableDto.Capacity,
                 request.CreateTableDto.Status,
-                request.CreateTableDto.ZoneId
-                );
+                request.CreateTableDto.ZoneId);
             return new CreateTableCommandResponse
             {
                 Id = result

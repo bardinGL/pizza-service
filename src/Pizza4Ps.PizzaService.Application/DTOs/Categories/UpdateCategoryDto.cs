@@ -1,6 +1,8 @@
 ﻿namespace Pizza4Ps.PizzaService.Application.DTOs.Categories
 {
-    internal class UpdateCategoryDto
+    public class UpdateCategoryDto
     {
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

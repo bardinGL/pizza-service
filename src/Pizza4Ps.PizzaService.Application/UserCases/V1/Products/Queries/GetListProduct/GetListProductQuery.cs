@@ -5,6 +5,6 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Products.Queries.GetLis
 {
     public class GetListProductQuery : IRequest<GetListProductQueryResponse>
     {
-        public GetListProductDto GetListProductDto {  get; set; }
+        public GetListProductDto GetListProductDto { get; set; }
     }
 }

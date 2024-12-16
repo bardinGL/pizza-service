@@ -5,23 +5,18 @@ using Pizza4Ps.PizzaService.Persistence.Constants;
 
 namespace Pizza4Ps.PizzaService.Persistence.Configurations
 {
-    public class CustomerConfigration : IEntityTypeConfiguration<Customer>
-    {
-        public void Configure(EntityTypeBuilder<Customer> builder)
-        {
-            builder.ToTable(TableNames.Customer);
-            builder.HasKey(x => x.Id);
+	public class CustomerConfigration : IEntityTypeConfiguration<Customer>
+	{
+		public void Configure(EntityTypeBuilder<Customer> builder)
+		{
+			builder.ToTable(TableNames.Customer);
+			builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.FullName)
-                .HasMaxLength(200)
-                .IsRequired();
+			builder.Property(x => x.FullName)
+				.HasMaxLength(200)
+				.IsRequired();
 
-            builder.Property(x => x.Phone);
-
-            builder.HasMany(x => x.Bookings)
-                .WithOne(x => x.Customer)
-                .HasForeignKey(x => x.CustomerId)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
-    }
+			builder.Property(x => x.Phone);
+		}
+	}
 }

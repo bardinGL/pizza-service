@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
+using Pizza4Ps.PizzaService.Application.DTOs.Bookings;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.CreateBooking;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.DeleteBooking;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.RestoreBooking;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.UpdateBooking;
-using Pizza4Ps.PizzaService.Domain.Exceptions;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
@@ -24,9 +24,9 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromBody] CreateBookingCommand command)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateBookingDto request)
         {
-            var result = await _sender.Send(command);
+            var result = await _sender.Send(new CreateBookingCommand { CreateBookingDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -36,13 +36,9 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateBookingCommand command)
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateBookingDto request)
         {
-            if (id != command.Id)
-            {
-                throw new ValidationException(Message.ID_URL_ERROR);
-            }
-            var result = await _sender.Send(command);
+            var result = await _sender.Send(new UpdateBookingCommand { Id = id, UpdateBookingDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,

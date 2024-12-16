@@ -1,6 +1,4 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
-
-namespace Pizza4Ps.PizzaService.Application.DTOs.Customers
+﻿namespace Pizza4Ps.PizzaService.Application.DTOs.Customers
 {
 	public class CustomerDto
 	{

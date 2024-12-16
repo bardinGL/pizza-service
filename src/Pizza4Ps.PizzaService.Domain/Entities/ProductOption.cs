@@ -14,7 +14,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         {
         }
 
-        public ProductOption(Guid id,Guid productId, Guid optionId)
+        public ProductOption(Guid id, Guid productId, Guid optionId)
         {
             Id = id;
             ProductId = productId;

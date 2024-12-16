@@ -5,9 +5,9 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
 {
     public class StaffSchedule : EntityAuditBase<Guid>
     {
-        public DateTimeOffset SchedualDate {  get; set; }
-        public TimeSpan ShiftStart {  get; set; }
-        public TimeSpan ShiftEnd {  get; set; }
+        public DateTimeOffset SchedualDate { get; set; }
+        public TimeSpan ShiftStart { get; set; }
+        public TimeSpan ShiftEnd { get; set; }
         public ConfigEnum Status { get; set; }
         public Guid StaffId { get; set; }
         public Guid ZoneId { get; set; }
@@ -19,7 +19,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         {
         }
 
-        public StaffSchedule(Guid id,DateTimeOffset schedualDate, TimeSpan shiftStart, TimeSpan shiftEnd, ConfigEnum status, Guid staffId, Guid zoneId)
+        public StaffSchedule(Guid id, DateTimeOffset schedualDate, TimeSpan shiftStart, TimeSpan shiftEnd, ConfigEnum status, Guid staffId, Guid zoneId)
         {
             Id = id;
             SchedualDate = schedualDate;

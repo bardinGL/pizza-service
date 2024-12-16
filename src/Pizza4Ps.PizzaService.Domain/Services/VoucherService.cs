@@ -21,9 +21,9 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             _voucherRepository = voucherRepository;
         }
 
-        public async Task<Guid> CreateAsync(string code, DiscountTypeEnum discountType, DateTime? expiryDate)
+        public async Task<Guid> CreateAsync(string code, DiscountTypeEnum discountType, DateTime expiryDate)
         {
-            var entity = new Voucher(code, discountType, expiryDate);
+            var entity = new Voucher(Guid.NewGuid(), code, discountType, expiryDate);
             _voucherRepository.Add(entity);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
@@ -58,7 +58,7 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             await _unitOfWork.SaveChangeAsync();
         }
 
-        public async Task<Guid> UpdateAsync(Guid id, string code, DiscountTypeEnum discountType, DateTime? expiryDate)
+        public async Task<Guid> UpdateAsync(Guid id, string code, DiscountTypeEnum discountType, DateTime expiryDate)
         {
             var entity = await _voucherRepository.GetSingleByIdAsync(id);
             entity.UpdateVoucher(code, discountType, expiryDate);

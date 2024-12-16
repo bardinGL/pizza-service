@@ -9,7 +9,6 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         public Guid OptionId { get; set; }
 
         public virtual Option Option { get; set; }
-        public virtual ICollection<OptionItemOrderItem> OptionItemOrderItems { get; set; }
 
         public OptionItem()
         {

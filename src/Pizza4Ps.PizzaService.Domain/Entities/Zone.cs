@@ -6,19 +6,15 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
     public class Zone : EntityAuditBase<Guid>
     {
         public string Name { get; set; }
-        public int? Capacity { get; set; }
-        public string? Description { get; set; }
+        public int Capacity { get; set; }
+        public string Description { get; set; }
         public ZoneTypeEnum Status { get; set; } = ZoneTypeEnum.Available;
-
-        public virtual ICollection<Table> Tables { get; set; }
-        public virtual ICollection<StaffZone> StaffZones { get; set; }
-        public virtual ICollection<StaffSchedule> StaffSchedules { get; set; }
 
         private Zone()
         {
         }
 
-        public Zone(Guid id,string name, int? capacity, string? description, ZoneTypeEnum status)
+        public Zone(Guid id, string name, int capacity, string description, ZoneTypeEnum status)
         {
             Id = id;
             Name = name;
@@ -27,12 +23,12 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             Status = status;
         }
 
-		public void UpdateZone(string name, int? capacity, string? description, ZoneTypeEnum status)
-		{
-			Name = name;
-			Capacity = capacity;
-			Description = description;
-			Status = status;
-		}
-	}
+        public void UpdateZone(string name, int capacity, string description, ZoneTypeEnum status)
+        {
+            Name = name;
+            Capacity = capacity;
+            Description = description;
+            Status = status;
+        }
+    }
 }

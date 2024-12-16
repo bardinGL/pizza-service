@@ -6,33 +6,28 @@ using Pizza4Ps.PizzaService.Persistence.Constants;
 
 namespace Pizza4Ps.PizzaService.Persistence.Configurations
 {
-    public class BookingConfigration : EntityBase<Booking>
-    {
-        public void Configure(EntityTypeBuilder<Booking> builder)
-        {
-            builder.ToTable(TableNames.Booking);
-            builder.HasKey(x => x.Id);
+	public class BookingConfigration : EntityBase<Booking>
+	{
+		public void Configure(EntityTypeBuilder<Booking> builder)
+		{
+			builder.ToTable(TableNames.Booking);
+			builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.BookingDate)
-                .IsRequired ();
+			builder.Property(x => x.BookingDate)
+				.IsRequired();
 
-            builder.Property(x => x.GuestCount)
-                .IsRequired();
+			builder.Property(x => x.GuestCount)
+				.IsRequired();
 
-            builder.Property(x => x.Status)
-                .IsRequired()
-                .HasMaxLength(50);
+			builder.Property(x => x.Status)
+				.IsRequired()
+				.HasMaxLength(50);
 
-            builder.HasOne(x => x.Customer)
-                .WithMany(x => x.Bookings)
-                .HasForeignKey(x => x.CustomerId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasMany(x => x.TableBookings)
-                .WithOne(x => x.Booking)
-                .HasForeignKey(x => x.BookingId)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
-    }
+			builder.HasOne(x => x.Customer)
+				.WithMany()
+				.HasForeignKey(x => x.CustomerId)
+				.IsRequired()
+				.OnDelete(DeleteBehavior.Cascade);
+		}
+	}
 }

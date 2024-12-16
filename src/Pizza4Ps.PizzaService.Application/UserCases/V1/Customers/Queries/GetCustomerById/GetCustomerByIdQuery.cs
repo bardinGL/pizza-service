@@ -5,5 +5,6 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Customers.Queries.GetCu
     public class GetCustomerByIdQuery : IRequest<GetCustomerByIdQueryResponse>
     {
         public Guid Id { get; set; }
+        public string includeProperties { get; set; } = "";
     }
 }

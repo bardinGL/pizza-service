@@ -7,15 +7,13 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
     {
         public string Code { get; set; }
         public DiscountTypeEnum DiscountType { get; set; }
-        public DateTime? ExpiryDate { get; set; }
-
-        public virtual ICollection<OrderVoucher> OrderVouchers { get; set; }
+        public DateTime ExpiryDate { get; set; }
 
         public Voucher()
         {
         }
 
-        public Voucher(Guid id ,string code, DiscountTypeEnum discountType, DateTime? expiryDate)
+        public Voucher(Guid id, string code, DiscountTypeEnum discountType, DateTime expiryDate)
         {
             Id = id;
             Code = code;
@@ -23,7 +21,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             ExpiryDate = expiryDate;
         }
 
-        public void UpdateVoucher(string code, DiscountTypeEnum discountType, DateTime? expiryDate)
+        public void UpdateVoucher(string code, DiscountTypeEnum discountType, DateTime expiryDate)
         {
             Code = code;
             DiscountType = discountType;

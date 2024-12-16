@@ -6,14 +6,10 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
 	{
 		public DateTimeOffset StartTime { get; set; }
 		public DateTimeOffset EndTime { get; set; }
-		public string? Status { get; set; }
+		public string Status { get; set; }
 		public Guid OrderInTableId { get; set; }
 
 		public virtual OrderInTable OrderInTable { get; set; }
-		public virtual ICollection<OrderItem> OrderItems { get; set; }
-		public virtual ICollection<Feedback> Feedbacks { get; set; }
-		public virtual ICollection<Payment> Payments { get; set; }
-		public virtual ICollection<OrderVoucher> OrderVouchers { get; set; }
 
 		private Order()
 		{

@@ -12,7 +12,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.Products.Queries.GetProduct
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/products")]
+    [Route("api/products")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsync([FromBody] CreateProductDto request)
         {
-            var result = await _sender.Send(new CreateProductCommand { CreateProductDto = request});
+            var result = await _sender.Send(new CreateProductCommand { CreateProductDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -52,7 +52,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpGet()]
         public async Task<IActionResult> GetListAsync([FromQuery] GetListProductDto query)
         {
-            var result = await _sender.Send(new GetListProductQuery { GetListProductDto = query});
+            var result = await _sender.Send(new GetListProductQuery { GetListProductDto = query });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -64,7 +64,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingleByIdAsync([FromRoute] Guid id)
         {
-            var result = await _sender.Send(new GetProductByIdQuery { Id = id});
+            var result = await _sender.Send(new GetProductByIdQuery { Id = id });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -76,7 +76,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateProductDto request)
         {
-            var result = await _sender.Send(new UpdateProductCommand { Id = id, UpdateProductDto = request});
+            var result = await _sender.Send(new UpdateProductCommand { Id = id, UpdateProductDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -88,7 +88,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpPut("restore")]
         public async Task<IActionResult> RestoreManyAsync(List<Guid> ids)
         {
-            await _sender.Send(new RestoreProductCommand { Ids = ids});
+            await _sender.Send(new RestoreProductCommand { Ids = ids });
             return Ok(new ApiResponse
             {
                 Message = Message.RESTORE_SUCCESS,

@@ -5,7 +5,6 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.CreateT
 {
     public class CreateTableCommand : IRequest<CreateTableCommandResponse>
     {
-        public Guid Id { get; set; }
         public CreateTableDto CreateTableDto { get; set; }
     }
 }

@@ -4,6 +4,6 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Customers.Queries.GetCu
 {
     public class GetCustomerByIdQueryResponse
     {
-        public CustomerDto customer { get; set; }
+        public CustomerDto Customer { get; set; }
     }
 }

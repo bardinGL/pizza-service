@@ -6,23 +6,26 @@ using Pizza4Ps.PizzaService.Application.DTOs.Categories;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Categories.Commands.CreateCategory;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Categories.Commands.DeleteCategory;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Categories.Commands.RestoreCategory;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Categories.Commands.UpdateCategory;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/categories")]
-	[ApiController]
-	public class CategoriesController : ControllerBase
-	{
-		private readonly ISender _sender;
+    [Route("api/categories")]
+    [ApiController]
+    public class CategoriesController : ControllerBase
+    {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ISender _sender;
 
         public CategoriesController(ISender sender)
         {
             _sender = sender;
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateAsync([FromBody] CreateCategoryDto request)
         {
-            var result = await _sender.Send(new CreateCategoryCommand { CreateCategoryDto = request});
+            var result = await _sender.Send(new CreateCategoryCommand { CreateCategoryDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -84,6 +87,18 @@ namespace Pizza4Ps.PizzaService.API.Controllers
             return Ok(new ApiResponse
             {
                 Message = Message.DELETED_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateCategoryDto request)
+        {
+            var result = await _sender.Send(new UpdateCategoryCommand { Id = id, UpdateCategoryDto = request });
+            return Ok(new ApiResponse
+            {
+                Result = result,
+                Message = Message.UPDATED_SUCCESS,
                 StatusCode = StatusCodes.Status200OK
             });
         }

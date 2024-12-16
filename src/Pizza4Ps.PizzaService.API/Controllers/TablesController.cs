@@ -2,14 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Commands.DeleteStaff;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Commands.RestoreStaff;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Commands.UpdateStaff;
+using Pizza4Ps.PizzaService.Application.DTOs.Tables;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.CreateTable;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.DeleteTable;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.RestoreTable;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.UpdateTable;
-using Pizza4Ps.PizzaService.Domain.Exceptions;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
@@ -27,9 +24,9 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromBody] CreateTableCommand command)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateTableDto request)
         {
-            var result = await _sender.Send(command);
+            var result = await _sender.Send(new CreateTableCommand { CreateTableDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -39,13 +36,9 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateTableCommand command)
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateTableDto request)
         {
-            if (id != command.Id)
-            {
-                throw new ValidationException(Message.ID_URL_ERROR);
-            }
-            var result = await _sender.Send(command);
+            var result = await _sender.Send(new UpdateTableCommand { Id = id, UpdateTableDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,

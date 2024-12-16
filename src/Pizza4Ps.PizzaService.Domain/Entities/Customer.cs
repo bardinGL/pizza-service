@@ -8,8 +8,6 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         public string FullName { get; set; }
         public string Phone { get; set; }
 
-        public virtual ICollection<Booking> Bookings { get; set; }
-
         private Customer()
         {
         }

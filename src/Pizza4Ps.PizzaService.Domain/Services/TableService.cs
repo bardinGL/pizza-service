@@ -23,7 +23,7 @@ namespace Pizza4Ps.PizzaService.Domain.Services
 
         public async Task<Guid> CreateAsync(int tableNumber, int capacity, TableTypeEnum status, Guid zoneId)
         {
-            var entity = new Table(tableNumber,capacity,status,zoneId);
+            var entity = new Table(Guid.NewGuid(), tableNumber, capacity, status, zoneId);
             _tableRepository.Add(entity);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
@@ -61,7 +61,7 @@ namespace Pizza4Ps.PizzaService.Domain.Services
         public async Task<Guid> UpdateAsync(Guid id, int tableNumber, int capacity, TableTypeEnum status, Guid zoneId)
         {
             var entity = await _tableRepository.GetSingleByIdAsync(id);
-            entity.UpdateTable(id,tableNumber,capacity,status,zoneId);
+            entity.UpdateTable(id, tableNumber, capacity, status, zoneId);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
         }
