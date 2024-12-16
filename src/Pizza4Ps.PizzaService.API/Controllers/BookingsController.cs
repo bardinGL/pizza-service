@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.DTOs.Bookings;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.CreateBooking;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.DeleteBooking;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.RestoreBooking;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Booking.Commands.UpdateBooking;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Commands.CreateBooking;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Commands.DeleteBooking;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Commands.RestoreBooking;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Commands.UpdateBooking;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
