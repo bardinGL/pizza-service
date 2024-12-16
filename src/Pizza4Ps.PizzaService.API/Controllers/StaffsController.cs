@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.DTOs.Staffs;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Commands.CreateStaff;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Commands.DeleteStaff;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Commands.RestoreStaff;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Commands.UpdateStaff;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Queries.GetListStaff;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Queries.GetListStaffIgnoreQueryFilter;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Staff.Queries.GetStaffById;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Staffs.Commands.CreateStaff;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Staffs.Commands.DeleteStaff;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Staffs.Commands.RestoreStaff;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Staffs.Commands.UpdateStaff;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Staffs.Queries.GetListStaff;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Staffs.Queries.GetListStaffIgnoreQueryFilter;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Staffs.Queries.GetStaffById;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {

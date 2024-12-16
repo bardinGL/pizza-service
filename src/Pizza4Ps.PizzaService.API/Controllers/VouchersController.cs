@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.DTOs.Vouchers;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Voucher.Commands.CreateVoucher;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Voucher.Commands.DeleteVoucher;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Voucher.Commands.RestoreVoucher;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Voucher.Commands.UpdateVoucher;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Voucher.Queries.GetListVoucherIgnoreQueryFilter;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Voucher.Queries.GetListVoucher;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Voucher.Queries.GetVoucherById;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Commands.CreateVoucher;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Commands.DeleteVoucher;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Commands.RestoreVoucher;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Commands.UpdateVoucher;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Queries.GetListVoucherIgnoreQueryFilter;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Queries.GetListVoucher;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Queries.GetVoucherById;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {

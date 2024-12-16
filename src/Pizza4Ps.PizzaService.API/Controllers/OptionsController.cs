@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.DTOs.Options;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Option.Commands.CreateOption;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Option.Commands.DeleteOption;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Option.Commands.RestoreOption;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Option.Commands.UpdateOption;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Option.Queries.GetListOption;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Option.Queries.GetListOptionIgnoreQueryFilter;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Option.Queries.GetOptionById;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Commands.CreateOption;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Commands.DeleteOption;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Commands.RestoreOption;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Commands.UpdateOption;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Queries.GetListOption;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Queries.GetListOptionIgnoreQueryFilter;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Queries.GetOptionById;
 
 
 namespace Pizza4Ps.PizzaService.API.Controllers

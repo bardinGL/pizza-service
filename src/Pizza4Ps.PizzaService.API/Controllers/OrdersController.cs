@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.DTOs.Orders;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Order.Commands.CreateOrder;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Order.Commands.DeleteOrder;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Order.Commands.RestoreOrder;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Order.Commands.UpdateOrder;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Order.Queries.GetListOrder;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Order.Queries.GetListOrderIgnoreQueryFilter;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Order.Queries.GetOrderById;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Commands.CreateOrder;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Commands.DeleteOrder;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Commands.RestoreOrder;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Commands.UpdateOrder;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Queries.GetListOrder;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Queries.GetListOrderIgnoreQueryFilter;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Queries.GetOrderById;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
