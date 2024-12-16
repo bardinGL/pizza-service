@@ -20,9 +20,9 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             _orderRepository = orderRepository;
         }
 
-        public async Task<Guid> CreateAsync(DateTimeOffset startTime, DateTimeOffset endTime, string? status, Guid orderInTableId)
+        public async Task<Guid> CreateAsync(DateTimeOffset startTime, DateTimeOffset endTime, string? status, Guid tableId)
         {
-            var entity = new Order(Guid.NewGuid(), startTime, endTime, status, orderInTableId);
+            var entity = new Order(Guid.NewGuid(), startTime, endTime, status, tableId);
             _orderRepository.Add(entity);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
@@ -57,10 +57,10 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             await _unitOfWork.SaveChangeAsync();
         }
 
-        public async Task<Guid> UpdateAsync(Guid id, DateTimeOffset startTime, DateTimeOffset endTime, string? status, Guid orderInTableId)
+        public async Task<Guid> UpdateAsync(Guid id, DateTimeOffset startTime, DateTimeOffset endTime, string? status, Guid tableId)
         {
             var entity = await _orderRepository.GetSingleByIdAsync(id);
-            entity.UpdateOrder(startTime, endTime, status, orderInTableId);
+            entity.UpdateOrder(startTime, endTime, status, tableId);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
         }

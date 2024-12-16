@@ -22,9 +22,9 @@ namespace Pizza4Ps.PizzaService.Persistence.Configurations
 				.HasMaxLength(50)
 				.IsRequired(false);
 
-			builder.HasOne(x => x.OrderInTable)
+			builder.HasOne(x => x.Table)
 				.WithMany()
-				.HasForeignKey(x => x.OrderInTableId)
+				.HasForeignKey(x => x.TableId)
 				.IsRequired()
 				.OnDelete(DeleteBehavior.Cascade);
 		}

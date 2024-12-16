@@ -19,7 +19,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Commands.UpdateO
 				request.UpdateOrderDto.StartTime,
 				request.UpdateOrderDto.EndTime,
 				request.UpdateOrderDto.Status,
-				request.UpdateOrderDto.OrderInTableId);
+				request.UpdateOrderDto.TableId);
 			return new UpdateOrderCommandResponse
 			{
 				Id = result

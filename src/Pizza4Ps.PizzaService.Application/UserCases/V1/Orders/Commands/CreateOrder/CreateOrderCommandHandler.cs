@@ -21,7 +21,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Commands.CreateO
 				request.CreateOrderDto.StartTime,
 				request.CreateOrderDto.EndTime,
 				request.CreateOrderDto.Status,
-				request.CreateOrderDto.OrderInTableId);
+				request.CreateOrderDto.TableId);
 			return new CreateOrderCommandResponse
 			{
 				Id = result

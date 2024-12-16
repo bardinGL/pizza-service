@@ -10,7 +10,6 @@ namespace Pizza4Ps.PizzaService.Persistence.Configurations
 		public void Configure(EntityTypeBuilder<TableBooking> builder)
 		{
 			builder.ToTable(TableNames.TableBooking);
-
 			builder.HasKey(x => x.Id);
 
 			builder.Property(x => x.OnholdTime)

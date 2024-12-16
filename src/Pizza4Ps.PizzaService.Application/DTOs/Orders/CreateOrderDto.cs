@@ -5,6 +5,6 @@
 		public DateTimeOffset StartTime { get; set; }
 		public DateTimeOffset EndTime { get; set; }
 		public string Status { get; set; }
-		public Guid OrderInTableId { get; set; }
+		public Guid TableId { get; set; }
 	}
 }

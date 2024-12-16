@@ -8,6 +8,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTable
 using Pizza4Ps.PizzaService.Domain.Abstractions.Repositories;
 using Pizza4Ps.PizzaService.Domain.Constants;
 using Pizza4Ps.PizzaService.Domain.Exceptions;
+using Pizza4Ps.PizzaService.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,12 +31,13 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListT
 
         public async Task<GetListTableIgnoreQueryFilterQueryResponse> Handle(GetListTableIgnoreQueryFilterQuery request, CancellationToken cancellationToken)
         {
-            var query = _tableRepository.GetListAsNoTracking(
+            var query = _tableRepository.GetListAsNoTracking(includeProperties: request.GetListTableIgnoreQueryFilterDto.includeProperties).IgnoreQueryFilters()
+                .Where(
                 x => (request.GetListTableIgnoreQueryFilterDto.TableNumber == null || x.TableNumber.Contains(request.GetListTableIgnoreQueryFilterDto.TableNumber))
                 && (request.GetListTableIgnoreQueryFilterDto.Capacity == null || x.Capacity.Contains(request.GetListTableIgnoreQueryFilterDto.Capacity))
                 && (request.GetListTableIgnoreQueryFilterDto.Status == null || x.Status == request.GetListTableIgnoreQueryFilterDto.Status)
                 && (request.GetListTableIgnoreQueryFilterDto.ZoneId == null || x.ZoneId == request.GetListTableIgnoreQueryFilterDto.ZoneId)
-                , includeProperties: request.GetListTableIgnoreQueryFilterDto.includeProperties);
+                    && x.IsDeleted == request.GetListTableIgnoreQueryFilterDto.IsDeleted);
             var entities = await query
                 .OrderBy(request.GetListTableIgnoreQueryFilterDto.SortBy)
                 .Skip(request.GetListTableIgnoreQueryFilterDto.SkipCount).Take(request.GetListTableIgnoreQueryFilterDto.TakeCount).ToListAsync();

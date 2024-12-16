@@ -1,31 +1,46 @@
 ﻿namespace Pizza4Ps.PizzaService.Domain.Constants
 {
-    public static class BussinessErrorConstants
-    {
+	public static class BussinessErrorConstants
+	{
+        public class BookingErrorConstant
+        {
+            public const string BOOKING_NOT_FOUND = "Bàn đặt không tìm thấy";
+        }
 
         public class ProductErrorConstant
-        {
-            public const string PRODUCT_NOT_FOUND = "Món ăn không tìm thấy";
-        }
-        public class CustomerErrorConstant
-        {
-            public const string CUSTOMER_NOT_FOUND = "Khách hàng không tìm thấy";
-        }
+		{
+			public const string PRODUCT_NOT_FOUND = "Món ăn không tìm thấy";
+		}
 
-        public class ZoneErrorConstant
-        {
-            public const string ZONE_NOT_FOUND = "Khu vực không tìm thấy";
-        }
+		public class PaymentErrorConstant
+	{
+			public const string PAYMENT_NOT_FOUND = "Payment không tìm thấy";
+		}
 
-        public class OrderErrorConstant
-        {
-            public const string ORDER_NOT_FOUND = "Order không tìm thấy";
-        }
+		public class CustomerErrorConstant
+		{
+			public const string CUSTOMER_NOT_FOUND = "Khách hàng không tìm thấy";
+		}
 
-        public class StaffErrorConstant
-        {
-            public const string STAFF_NOT_FOUND = "Nhân viên không tìm thấy";
-        }
+		public class FeedbackErrorConstant
+		{
+			public const string FEEDBACK_NOT_FOUND = "Feedback không tìm thấy";
+		}
+
+		public class ZoneErrorConstant
+		{
+			public const string ZONE_NOT_FOUND = "Khu vực không tìm thấy";
+		}
+
+		public class OrderErrorConstant
+		{
+			public const string ORDER_NOT_FOUND = "Order không tìm thấy";
+		}
+
+		public class StaffErrorConstant
+		{
+			public const string STAFF_NOT_FOUND = "Nhân viên không tìm thấy";
+		}
 
         public class VoucherErrorConstant
         {

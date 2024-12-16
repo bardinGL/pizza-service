@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
 using Pizza4Ps.PizzaService.Application.DTOs.Tables;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTable;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTableIgnoreQueryFilter;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetTableById;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.CreateTable;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.DeleteTable;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Commands.RestoreTable;
@@ -34,6 +37,43 @@ namespace Pizza4Ps.PizzaService.API.Controllers
                 StatusCode = StatusCodes.Status201Created
             });
         }
+
+        [HttpGet("ignore-filter")]
+        public async Task<IActionResult> GetListIgnoreQueryFilterAsync([FromQuery] GetListTableIgnoreQueryFilterDto query)
+        {
+            var result = await _sender.Send(new GetListTableIgnoreQueryFilterQuery { GetListTableIgnoreQueryFilterDto = query });
+            return Ok(new ApiResponse
+            {
+                Result = result,
+                Message = Message.GET_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
+        [HttpGet()]
+        public async Task<IActionResult> GetListAsync([FromQuery] GetListTableDto query)
+        {
+            var result = await _sender.Send(new GetListTableQuery { GetListTableDto = query });
+            return Ok(new ApiResponse
+            {
+                Result = result,
+                Message = Message.GET_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetSingleByIdAsync([FromRoute] Guid id)
+        {
+            var result = await _sender.Send(new GetTableByIdQuery { Id = id });
+            return Ok(new ApiResponse
+            {
+                Result = result,
+                Message = Message.GET_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateTableDto request)

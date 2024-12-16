@@ -1,13 +1,8 @@
 ﻿using Pizza4Ps.PizzaService.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.Tables
 {
-    public class UpdateTableDto
+	public class UpdateTableDto
     {
         public int TableNumber { get; set; }
         public int Capacity { get; set; }

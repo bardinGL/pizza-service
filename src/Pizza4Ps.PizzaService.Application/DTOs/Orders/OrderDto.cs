@@ -2,13 +2,14 @@
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.Orders
 {
-    public class OrderDto
-    {
-        public DateTimeOffset StartTime { get; set; }
-        public DateTimeOffset EndTime { get; set; }
-        public string Status { get; set; }
-        public Guid OrderInTableId { get; set; }
+	public class OrderDto
+	{
+		public Guid Id { get; set; }
+		public DateTimeOffset StartTime { get; set; }
+		public DateTimeOffset EndTime { get; set; }
+		public string Status { get; set; }
+		public Guid TableId { get; set; }
 
-        public virtual OrderInTable OrderInTable { get; set; }
-    }
+		public virtual Table Table { get; set; }
+	}
 }

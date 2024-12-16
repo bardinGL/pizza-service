@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Pizza4Ps.PizzaService.Domain.Abstractions;
 using Pizza4Ps.PizzaService.Domain.Entities;
 using Pizza4Ps.PizzaService.Persistence.Constants;
 
 namespace Pizza4Ps.PizzaService.Persistence.Configurations
 {
-	public class BookingConfigration : EntityBase<Booking>
+	public class BookingConfigration : IEntityTypeConfiguration<Booking>
 	{
 		public void Configure(EntityTypeBuilder<Booking> builder)
 		{
