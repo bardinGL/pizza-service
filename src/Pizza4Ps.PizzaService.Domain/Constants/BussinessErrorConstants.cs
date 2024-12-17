@@ -71,5 +71,10 @@
         {
             public const string TABLE_NOT_FOUND = "Bàn không tìm thấy";
         }
+
+        public class StaffZoneErrorConstant
+        {
+            public const string STAFFZONE_NOT_FOUND = "Khu vực nhân viên không tìm thấy";
+        }
     }
 }

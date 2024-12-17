@@ -41,8 +41,6 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListT
             var entities = await query
                 .OrderBy(request.GetListTableIgnoreQueryFilterDto.SortBy)
                 .Skip(request.GetListTableIgnoreQueryFilterDto.SkipCount).Take(request.GetListTableIgnoreQueryFilterDto.TakeCount).ToListAsync();
-            if (!entities.Any())
-                throw new BusinessException(BussinessErrorConstants.TableErrorConstant.TABLE_NOT_FOUND);
             var result = _mapper.Map<List<TableDto>>(entities);
             var totalCount = await query.CountAsync();
             return new GetListTableIgnoreQueryFilterQueryResponse(result, totalCount);

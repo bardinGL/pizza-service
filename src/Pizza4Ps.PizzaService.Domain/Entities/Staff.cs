@@ -27,7 +27,7 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             Status = status;
         }
 
-        internal void UpdateStaff(string code, string name, string phone, string email, StaffTypeEnum.StaffType staffType, StaffTypeEnum.StaffStatus status)
+        public void UpdateStaff(string code, string name, string phone, string email, StaffTypeEnum.StaffType staffType, StaffTypeEnum.StaffStatus status)
         {
             Code = code;
             Name = name;

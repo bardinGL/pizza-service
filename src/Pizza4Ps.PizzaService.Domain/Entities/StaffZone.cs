@@ -28,5 +28,15 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             StaffId = staffId;
             ZoneId = zoneId;
         }
+
+        public void UpdateStaffZone(DateOnly workDate, TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
+        {
+            WorkDate = workDate;
+            ShiftStart = shiftStart;
+            ShiftEnd = shiftEnd;
+            Note = note;
+            StaffId = staffId;
+            ZoneId = zoneId;
+        }
     }
 }
