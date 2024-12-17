@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Pizza4Ps.PizzaService.Domain.Entities
 {
-    public class Category : EntityBase<Guid>
+    public class Category : EntityAuditBase<Guid>
     {
         public string Name { get; set; }
         public string Description { get; set; }

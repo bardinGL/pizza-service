@@ -2,7 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
+using Pizza4Ps.PizzaService.Application.DTOs.Bookings;
 using Pizza4Ps.PizzaService.Application.DTOs.Categories;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Queries.GetBookingById;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Queries.GetListBooking;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Queries.GetListBookingIgnoreQueryFilter;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Categories.Commands.CreateCategory;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Categories.Commands.DeleteCategory;
 using Pizza4Ps.PizzaService.Application.UserCases.V1.Categories.Commands.RestoreCategory;
@@ -68,6 +72,42 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         //        StatusCode = StatusCodes.Status200OK
         //    });
         //}
+
+        [HttpGet("ignore-filter")]
+        public async Task<IActionResult> GetListIgnoreQueryFilterAsync([FromQuery] GetListBookingIgnoreQueryFilterDto query)
+        {
+            var result = await _sender.Send(new GetListBookingIgnoreQueryFilterQuery { GetListBookingIgnoreQueryFilterDto = query });
+            return Ok(new ApiResponse
+            {
+                Result = result,
+                Message = Message.GET_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
+        [HttpGet()]
+        public async Task<IActionResult> GetListAsync([FromQuery] GetListBookingDto query)
+        {
+            var result = await _sender.Send(new GetListBookingQuery { GetListBookingDto = query });
+            return Ok(new ApiResponse
+            {
+                Result = result,
+                Message = Message.GET_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetSingleByIdAsync([FromRoute] Guid id)
+        {
+            var result = await _sender.Send(new GetBookingByIdQuery { Id = id });
+            return Ok(new ApiResponse
+            {
+                Result = result,
+                Message = Message.GET_SUCCESS,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
 
         [HttpPut("restore")]
         public async Task<IActionResult> RestoreManyAsync(List<Guid> ids)

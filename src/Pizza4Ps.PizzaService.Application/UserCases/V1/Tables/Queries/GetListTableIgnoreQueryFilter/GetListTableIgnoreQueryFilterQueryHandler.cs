@@ -33,8 +33,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListT
         {
             var query = _tableRepository.GetListAsNoTracking(includeProperties: request.GetListTableIgnoreQueryFilterDto.includeProperties).IgnoreQueryFilters()
                 .Where(
-                x => (request.GetListTableIgnoreQueryFilterDto.TableNumber == null || x.TableNumber.Contains(request.GetListTableIgnoreQueryFilterDto.TableNumber))
-                && (request.GetListTableIgnoreQueryFilterDto.Capacity == null || x.Capacity.Contains(request.GetListTableIgnoreQueryFilterDto.Capacity))
+                x => (request.GetListTableIgnoreQueryFilterDto.TableNumber == null || x.TableNumber == request.GetListTableIgnoreQueryFilterDto.TableNumber)
+                && (request.GetListTableIgnoreQueryFilterDto.Capacity == null || x.Capacity == request.GetListTableIgnoreQueryFilterDto.Capacity)
                 && (request.GetListTableIgnoreQueryFilterDto.Status == null || x.Status == request.GetListTableIgnoreQueryFilterDto.Status)
                 && (request.GetListTableIgnoreQueryFilterDto.ZoneId == null || x.ZoneId == request.GetListTableIgnoreQueryFilterDto.ZoneId)
                     && x.IsDeleted == request.GetListTableIgnoreQueryFilterDto.IsDeleted);

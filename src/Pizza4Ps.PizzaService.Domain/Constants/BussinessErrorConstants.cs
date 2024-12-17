@@ -7,6 +7,11 @@
             public const string BOOKING_NOT_FOUND = "Bàn đặt không tìm thấy";
         }
 
+        public class CategoryErrorConstant
+        {
+            public const string CATEGORY_NOT_FOUND = "Danh mujc không tìm thấy";
+        }
+
         public class ProductErrorConstant
 		{
 			public const string PRODUCT_NOT_FOUND = "Món ăn không tìm thấy";

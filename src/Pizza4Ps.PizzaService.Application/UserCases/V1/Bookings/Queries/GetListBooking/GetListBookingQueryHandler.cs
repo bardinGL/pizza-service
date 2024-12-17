@@ -23,8 +23,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Queries.GetLis
         public async Task<GetListBookingQueryResponse> Handle(GetListBookingQuery request, CancellationToken cancellationToken)
         {
             var query = _BookingRepository.GetListAsNoTracking(
-                x => (request.GetListBookingDto.BookingDate == null || x.BookingDate.Contains(request.GetListBookingDto.BookingDate))
-                && (request.GetListBookingDto.GuestCount == null || x.GuestCount.Contains(request.GetListBookingDto.GuestCount))
+                x => (request.GetListBookingDto.BookingDate == null || x.BookingDate == request.GetListBookingDto.BookingDate)
+                && (request.GetListBookingDto.GuestCount == null || x.GuestCount == request.GetListBookingDto.GuestCount)
                 && (request.GetListBookingDto.Status == null || x.Status == request.GetListBookingDto.Status)
                 && (request.GetListBookingDto.CustomerId == null || x.CustomerId == request.GetListBookingDto.CustomerId)
                 && (request.GetListBookingDto.TableBookingId == null || x.TableBookingId == request.GetListBookingDto.TableBookingId)

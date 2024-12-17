@@ -23,8 +23,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListT
         public async Task<GetListTableQueryResponse> Handle(GetListTableQuery request, CancellationToken cancellationToken)
         {
             var query = _tableRepository.GetListAsNoTracking(
-                x => (request.GetListTableDto.TableNumber == null || x.TableNumber.Contains(request.GetListTableDto.TableNumber))
-                && (request.GetListTableDto.Capacity == null || x.Capacity.Contains(request.GetListTableDto.Capacity))
+                x => (request.GetListTableDto.TableNumber == null || x.TableNumber == request.GetListTableDto.TableNumber)
+                && (request.GetListTableDto.Capacity == null || x.Capacity == request.GetListTableDto.Capacity)
                 && (request.GetListTableDto.Status == null || x.Status == request.GetListTableDto.Status)
                 && (request.GetListTableDto.ZoneId == null || x.ZoneId == request.GetListTableDto.ZoneId)
                 , includeProperties: request.GetListTableDto.includeProperties);

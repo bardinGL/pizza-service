@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Pizza4Ps.PizzaService.Application.DTOs.Bookings;
 using Pizza4Ps.PizzaService.Domain.Abstractions.Repositories;
+using System.Linq.Dynamic.Core;
 
 namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Queries.GetListBookingIgnoreQueryFilter
 {
@@ -21,8 +22,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Queries.GetLis
         {
             var query = _BookingRepository.GetListAsNoTracking(includeProperties: request.GetListBookingIgnoreQueryFilterDto.includeProperties).IgnoreQueryFilters()
                 .Where(
-                x => (request.GetListBookingIgnoreQueryFilterDto.BookingDate == null || x.BookingDate.Contains(request.GetListBookingIgnoreQueryFilterDto.BookingDate))
-                && (request.GetListBookingIgnoreQueryFilterDto.GuestCount == null || x.GuestCount.Contains(request.GetListBookingIgnoreQueryFilterDto.GuestCount))
+                x => (request.GetListBookingIgnoreQueryFilterDto.BookingDate == null || x.BookingDate == request.GetListBookingIgnoreQueryFilterDto.BookingDate)
+                && (request.GetListBookingIgnoreQueryFilterDto.GuestCount == null || x.GuestCount == request.GetListBookingIgnoreQueryFilterDto.GuestCount)
                 && (request.GetListBookingIgnoreQueryFilterDto.Status == null || x.Status == request.GetListBookingIgnoreQueryFilterDto.Status)
                 && (request.GetListBookingIgnoreQueryFilterDto.CustomerId == null || x.CustomerId == request.GetListBookingIgnoreQueryFilterDto.CustomerId)
                 && (request.GetListBookingIgnoreQueryFilterDto.TableBookingId == null || x.TableBookingId == request.GetListBookingIgnoreQueryFilterDto.TableBookingId)
