@@ -8,14 +8,11 @@
 
 	<ItemGroup>
 		<Folder Include="DependencyInjection\Options\" />
-<<<<<<< HEAD
-=======
 		<Folder Include="UserCases\V1\OrderVouchers\Queries\" />
 		<Folder Include="UserCases\V1\ProductOptions\Queries\GetListProductOption\" />
 		<Folder Include="UserCases\V1\ProductOptions\Queries\GetListProductOptionIgnoreQueryFilter\" />
 		<Folder Include="UserCases\V1\ProductOptions\Queries\GetProductOptionById\" />
 		<Folder Include="UserCases\V1\Tables\Queries\" />
->>>>>>> 783f53ac145cce419d5a2c0e5b0e504586d40783
 		<Folder Include="Models\" />
 		<Folder Include="Validators\" />
 	</ItemGroup>
