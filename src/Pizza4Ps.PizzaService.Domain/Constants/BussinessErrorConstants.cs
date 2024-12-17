@@ -17,8 +17,23 @@
 			public const string PRODUCT_NOT_FOUND = "Món ăn không tìm thấy";
 		}
 
+		public class OrderItemErrorConstant
+		{
+			public const string ORDERITEM_NOT_FOUND = "Order item không tìm thấy";
+		}
+
+		public class OptionItemOrderItemErrorConstant
+		{
+			public const string OPTIONITEMORDERITEM_NOT_FOUND = "Option item order item không tìm thấy";
+		}
+
+		public class OptionItemErrorConstant
+		{
+			public const string OPTIONITEM_NOT_FOUND = "Option item không tìm thấy";
+		}
+
 		public class PaymentErrorConstant
-	{
+		{
 			public const string PAYMENT_NOT_FOUND = "Payment không tìm thấy";
 		}
 
