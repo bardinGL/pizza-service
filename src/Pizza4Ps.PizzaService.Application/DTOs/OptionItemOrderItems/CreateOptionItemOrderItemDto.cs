@@ -1,6 +1,4 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
-
-namespace Pizza4Ps.PizzaService.Application.DTOs.OptionItemOrderItems
+﻿namespace Pizza4Ps.PizzaService.Application.DTOs.OptionItemOrderItems
 {
 	public class CreateOptionItemOrderItemDto
 	{

@@ -1,4 +1,4 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
+﻿using Pizza4Ps.PizzaService.Application.DTOs.Orders;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.Feedbacks
 {
@@ -9,6 +9,6 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.Feedbacks
 		public string Comments { get; set; }
 		public Guid OrderId { get; set; }
 
-		public virtual Order Order { get; set; }
+		public virtual OrderDto Order { get; set; }
 	}
 }

@@ -10,7 +10,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.TableBookings.Commands.Upda
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("table-bookings")]
 	[ApiController]
 	public class TableBookingsController : ControllerBase
 	{

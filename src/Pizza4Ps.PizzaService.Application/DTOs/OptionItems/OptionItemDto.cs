@@ -1,4 +1,5 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
+﻿using Pizza4Ps.PizzaService.Application.DTOs.Options;
+using Pizza4Ps.PizzaService.Domain.Entities;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.OptionItems
 {
@@ -9,6 +10,6 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.OptionItems
 		public decimal AdditionalPrice { get; set; }
 		public Guid OptionId { get; set; }
 
-		public virtual Option Option { get; set; }
+		public virtual OptionDto Option { get; set; }
 	}
 }

@@ -24,6 +24,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Feedbacks.Queries.GetLi
 				.Where(
 					x => (request.GetListFeedbackIgnoreQueryFilterDto.Rating == null || x.Rating == request.GetListFeedbackIgnoreQueryFilterDto.Rating)
 					&& (request.GetListFeedbackIgnoreQueryFilterDto.Comments == null || x.Comments.Contains(request.GetListFeedbackIgnoreQueryFilterDto.Comments))
+					&& (request.GetListFeedbackIgnoreQueryFilterDto.OrderId == null || x.OrderId == request.GetListFeedbackIgnoreQueryFilterDto.OrderId)
 					&& x.IsDeleted == request.GetListFeedbackIgnoreQueryFilterDto.IsDeleted);
 			var entities = await query
 				.OrderBy(request.GetListFeedbackIgnoreQueryFilterDto.SortBy)

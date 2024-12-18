@@ -13,7 +13,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.Feedbacks.Queries.GetListFe
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/feedbacks")]
 	[ApiController]
 	public class FeedbacksController : ControllerBase
 	{

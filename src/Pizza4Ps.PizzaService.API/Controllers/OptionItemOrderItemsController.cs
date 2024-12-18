@@ -13,7 +13,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.OptionItemOrderItems.Querie
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/optionitemorderitems")]
+	[Route("api/option-item-order-items")]
 	[ApiController]
 	public class OptionItemOrderItemsController : ControllerBase
 	{

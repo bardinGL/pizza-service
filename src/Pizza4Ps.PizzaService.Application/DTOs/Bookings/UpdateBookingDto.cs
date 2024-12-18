@@ -6,6 +6,5 @@
         public int GuestCount { get; set; }
         public string Status { get; set; }
         public Guid CustomerId { get; set; }
-        public Guid TableBookingId { get; set; }
     }
 }

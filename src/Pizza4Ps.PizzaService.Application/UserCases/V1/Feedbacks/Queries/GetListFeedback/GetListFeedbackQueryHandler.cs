@@ -24,7 +24,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Feedbacks.Queries.GetLi
 		{
 			var query = _feedbackRepository.GetListAsNoTracking(
 				x => (request.GetListFeedbackDto.Rating == null || x.Rating == request.GetListFeedbackDto.Rating)
-				&& (request.GetListFeedbackDto.Comments == null || x.Comments.Contains(request.GetListFeedbackDto.Comments)),
+				&& (request.GetListFeedbackDto.Comments == null || x.Comments.Contains(request.GetListFeedbackDto.Comments))
+				&& (request.GetListFeedbackDto.OrderId == null || x.OrderId == request.GetListFeedbackDto.OrderId),
 				includeProperties: request.GetListFeedbackDto.includeProperties);
 			var entities = await query
 				.OrderBy(request.GetListFeedbackDto.SortBy)

@@ -13,7 +13,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.OrderItems.Queries.GetOrder
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/orderitems")]
+	[Route("api/order-items")]
 	[ApiController]
 	public class OrderItemsController : ControllerBase
 	{

@@ -25,6 +25,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Queries.GetListO
 					x => (request.GetListOrderIgnoreQueryFilterDto.StartTime == null || x.StartTime == request.GetListOrderIgnoreQueryFilterDto.StartTime)
 					&& (request.GetListOrderIgnoreQueryFilterDto.EndTime == null || x.EndTime == request.GetListOrderIgnoreQueryFilterDto.EndTime)
 					&& (request.GetListOrderIgnoreQueryFilterDto.Status == null || x.Status.Contains(request.GetListOrderIgnoreQueryFilterDto.Status))
+					&& (request.GetListOrderIgnoreQueryFilterDto.TableId == null || x.TableId == request.GetListOrderIgnoreQueryFilterDto.TableId)
 					&& x.IsDeleted == request.GetListOrderIgnoreQueryFilterDto.IsDeleted);
 			var entities = await query
 				.OrderBy(request.GetListOrderIgnoreQueryFilterDto.SortBy)

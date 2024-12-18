@@ -25,6 +25,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Payments.Queries.GetLis
 					x => (request.GetListPaymentIgnoreQueryFilterDto.Amount == null || x.Amount == request.GetListPaymentIgnoreQueryFilterDto.Amount)
 					&& (request.GetListPaymentIgnoreQueryFilterDto.PaymentMethod == null || x.PaymentMethod == request.GetListPaymentIgnoreQueryFilterDto.PaymentMethod)
 					&& (request.GetListPaymentIgnoreQueryFilterDto.Status == null || x.Status.Contains(request.GetListPaymentIgnoreQueryFilterDto.Status))
+					&& (request.GetListPaymentIgnoreQueryFilterDto.OrderId == null || x.OrderId == request.GetListPaymentIgnoreQueryFilterDto.OrderId)
 					&& x.IsDeleted == request.GetListPaymentIgnoreQueryFilterDto.IsDeleted);
 			var entities = await query
 				.OrderBy(request.GetListPaymentIgnoreQueryFilterDto.SortBy)

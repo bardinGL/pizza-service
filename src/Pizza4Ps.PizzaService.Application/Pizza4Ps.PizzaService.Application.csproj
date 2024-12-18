@@ -8,10 +8,6 @@
 
 	<ItemGroup>
 		<Folder Include="DependencyInjection\Options\" />
-		<Folder Include="UserCases\V1\OrderVouchers\Queries\" />
-		<Folder Include="UserCases\V1\ProductOptions\Queries\GetListProductOption\" />
-		<Folder Include="UserCases\V1\ProductOptions\Queries\GetListProductOptionIgnoreQueryFilter\" />
-		<Folder Include="UserCases\V1\ProductOptions\Queries\GetProductOptionById\" />
 		<Folder Include="UserCases\V1\Tables\Queries\" />
 		<Folder Include="Models\" />
 		<Folder Include="Validators\" />

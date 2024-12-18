@@ -1,4 +1,4 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
+﻿using Pizza4Ps.PizzaService.Application.DTOs.Tables;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.Orders
 {
@@ -10,6 +10,6 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.Orders
 		public string Status { get; set; }
 		public Guid TableId { get; set; }
 
-		public virtual Table Table { get; set; }
+		public virtual TableDto Table { get; set; }
 	}
 }

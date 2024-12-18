@@ -1,8 +1,6 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
-
-namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZones
+﻿namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZones
 {
-    public class CreateStaffZoneDto
+	public class CreateStaffZoneDto
     {
         public DateOnly WorkDate { get; set; }
         public TimeOnly ShiftStart { get; set; }

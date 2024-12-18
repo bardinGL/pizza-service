@@ -1,4 +1,5 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
+﻿using Pizza4Ps.PizzaService.Application.DTOs.Orders;
+using Pizza4Ps.PizzaService.Application.DTOs.Vouchers;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.OrderVouchers
 {
@@ -8,7 +9,7 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.OrderVouchers
 		public Guid OrderId { get; set; }
 		public Guid VoucherId { get; set; }
 
-		public virtual Order Order { get; set; }
-		public virtual Voucher Voucher { get; set; }
+		public virtual OrderDto Order { get; set; }
+		public virtual VoucherDto Voucher { get; set; }
 	}
 }

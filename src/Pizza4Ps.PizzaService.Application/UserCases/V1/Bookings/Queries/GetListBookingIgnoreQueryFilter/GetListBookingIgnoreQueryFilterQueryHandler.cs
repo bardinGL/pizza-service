@@ -22,11 +22,10 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Queries.GetLis
         {
             var query = _BookingRepository.GetListAsNoTracking(includeProperties: request.GetListBookingIgnoreQueryFilterDto.includeProperties).IgnoreQueryFilters()
                 .Where(
-                x => (request.GetListBookingIgnoreQueryFilterDto.BookingDate == null || x.BookingDate == request.GetListBookingIgnoreQueryFilterDto.BookingDate)
-                && (request.GetListBookingIgnoreQueryFilterDto.GuestCount == null || x.GuestCount == request.GetListBookingIgnoreQueryFilterDto.GuestCount)
-                && (request.GetListBookingIgnoreQueryFilterDto.Status == null || x.Status == request.GetListBookingIgnoreQueryFilterDto.Status)
-                && (request.GetListBookingIgnoreQueryFilterDto.CustomerId == null || x.CustomerId == request.GetListBookingIgnoreQueryFilterDto.CustomerId)
-                && (request.GetListBookingIgnoreQueryFilterDto.TableBookingId == null || x.TableBookingId == request.GetListBookingIgnoreQueryFilterDto.TableBookingId)
+                    x => (request.GetListBookingIgnoreQueryFilterDto.BookingDate == null || x.BookingDate == request.GetListBookingIgnoreQueryFilterDto.BookingDate)
+                    && (request.GetListBookingIgnoreQueryFilterDto.GuestCount == null || x.GuestCount == request.GetListBookingIgnoreQueryFilterDto.GuestCount)
+                    && (request.GetListBookingIgnoreQueryFilterDto.Status == null || x.Status == request.GetListBookingIgnoreQueryFilterDto.Status)
+                    && (request.GetListBookingIgnoreQueryFilterDto.CustomerId == null || x.CustomerId == request.GetListBookingIgnoreQueryFilterDto.CustomerId)
                     && x.IsDeleted == request.GetListBookingIgnoreQueryFilterDto.IsDeleted);
             var entities = await query
                 .OrderBy(request.GetListBookingIgnoreQueryFilterDto.SortBy)
