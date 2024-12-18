@@ -2,13 +2,11 @@
 using Pizza4Ps.PizzaService.Domain.Abstractions;
 using Pizza4Ps.PizzaService.Domain.Abstractions.Entities;
 using Pizza4Ps.PizzaService.Domain.Abstractions.Repositories.RepositoryBase;
-using Pizza4Ps.PizzaService.Domain.Exceptions;
 using System.Linq.Expressions;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Pizza4Ps.PizzaService.Persistence
 {
-    public class RepositoryBase<TEntity, TKey> : IRepositoryBase<TEntity, TKey>, IDisposable
+	public class RepositoryBase<TEntity, TKey> : IRepositoryBase<TEntity, TKey>, IDisposable
         where TEntity : EntityBase<TKey>
     {
         private readonly ApplicationDBContext _dbContext;

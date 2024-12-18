@@ -7,6 +7,11 @@
 			public const string PRODUCTOPTION_NOT_FOUND = "Product option không tìm thấy";
 		}
 
+		public class WorkingTimeErrorConstant
+		{
+			public const string WORKINGTIME_NOT_FOUND = "Working time không tìm thấy";
+		}
+
 		public class TableBookingErrorConstant
 		{
 			public const string TABLEBOOKING_NOT_FOUND = "Table booking không tìm thấy";

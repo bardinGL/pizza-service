@@ -69,10 +69,5 @@ namespace Pizza4Ps.PizzaService.Domain.Services
 			await _unitOfWork.SaveChangeAsync();
 			return entity.Id;
 		}
-
-		public Task<Guid> UpdateAsync(Guid id, string name, string description)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }
