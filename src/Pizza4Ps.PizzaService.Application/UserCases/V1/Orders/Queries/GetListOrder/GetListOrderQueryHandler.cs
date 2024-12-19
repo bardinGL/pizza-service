@@ -25,7 +25,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Orders.Queries.GetListO
 			var query = _orderRepository.GetListAsNoTracking(
 				x => (request.GetListOrderDto.StartTime == null || x.StartTime == request.GetListOrderDto.StartTime)
 				&& (request.GetListOrderDto.EndTime == null || x.EndTime == request.GetListOrderDto.EndTime)
-				&& (request.GetListOrderDto.Status == null || x.Status.Contains(request.GetListOrderDto.Status)),
+				&& (request.GetListOrderDto.Status == null || x.Status.Contains(request.GetListOrderDto.Status))
+				&& (request.GetListOrderDto.TableId == null || x.TableId == request.GetListOrderDto.TableId),
 				includeProperties: request.GetListOrderDto.includeProperties);
 			var entities = await query
 				.OrderBy(request.GetListOrderDto.SortBy)

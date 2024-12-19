@@ -25,7 +25,9 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.OrderItems.Queries.GetL
 			var query = _orderitemRepository.GetListAsNoTracking(
 				x => (request.GetListOrderItemDto.Name == null || x.Name.Contains(request.GetListOrderItemDto.Name))
 				&& (request.GetListOrderItemDto.Quantity == null || x.Quantity == request.GetListOrderItemDto.Quantity)
-				&& (request.GetListOrderItemDto.Price == null || x.Price == request.GetListOrderItemDto.Price),
+				&& (request.GetListOrderItemDto.Price == null || x.Price == request.GetListOrderItemDto.Price)
+				&& (request.GetListOrderItemDto.OrderId == null || x.OrderId == request.GetListOrderItemDto.OrderId)
+				&& (request.GetListOrderItemDto.ProductId == null || x.ProductId == request.GetListOrderItemDto.ProductId),
 				includeProperties: request.GetListOrderItemDto.includeProperties);
 			var entities = await query
 				.OrderBy(request.GetListOrderItemDto.SortBy)

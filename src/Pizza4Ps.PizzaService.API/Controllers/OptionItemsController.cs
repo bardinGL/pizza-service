@@ -13,7 +13,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.OptionItems.Queries.GetOpti
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/optionitems")]
+	[Route("api/option-items")]
 	[ApiController]
 	public class OptionItemsController : ControllerBase
 	{

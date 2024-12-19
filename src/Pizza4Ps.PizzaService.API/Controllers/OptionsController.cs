@@ -14,7 +14,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.Options.Queries.GetOptionBy
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/options")]
     [ApiController]
     public class OptionsController : ControllerBase
     {

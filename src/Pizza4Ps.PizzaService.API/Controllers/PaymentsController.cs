@@ -13,7 +13,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.Payments.Queries.GetPayment
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/Payments")]
+	[Route("api/payments")]
 	[ApiController]
 	public class PaymentsController : ControllerBase
 	{

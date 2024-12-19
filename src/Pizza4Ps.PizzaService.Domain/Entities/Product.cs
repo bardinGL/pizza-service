@@ -1,5 +1,4 @@
-﻿using Pizza4Ps.PizzaService.Domain.Exceptions;
-using Pizza4Ps.PizzaService.Domain.Abstractions;
+﻿using Pizza4Ps.PizzaService.Domain.Abstractions;
 
 namespace Pizza4Ps.PizzaService.Domain.Entities
 {

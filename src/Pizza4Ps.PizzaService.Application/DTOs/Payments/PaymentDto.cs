@@ -1,4 +1,4 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
+﻿using Pizza4Ps.PizzaService.Application.DTOs.Orders;
 using Pizza4Ps.PizzaService.Domain.Enums;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.Payments
@@ -11,6 +11,6 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.Payments
 		public string Status { get; set; }
 		public Guid OrderId { get; set; }
 
-		public virtual Order Order { get; set; }
+		public virtual OrderDto Order { get; set; }
 	}
 }

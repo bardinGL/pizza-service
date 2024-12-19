@@ -1,24 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Pizza4Ps.PizzaService.Application.DTOs.Products;
 using Pizza4Ps.PizzaService.Application.DTOs.Tables;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Products.Queries.GetListProduct;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTable;
 using Pizza4Ps.PizzaService.Domain.Abstractions.Repositories;
-using Pizza4Ps.PizzaService.Domain.Constants;
-using Pizza4Ps.PizzaService.Domain.Exceptions;
-using Pizza4Ps.PizzaService.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Dynamic.Core;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Tables.Queries.GetListTableIgnoreQueryFilter
 {
-    public class GetListTableIgnoreQueryFilterQueryHandler : IRequestHandler<GetListTableIgnoreQueryFilterQuery, GetListTableIgnoreQueryFilterQueryResponse>
+	public class GetListTableIgnoreQueryFilterQueryHandler : IRequestHandler<GetListTableIgnoreQueryFilterQuery, GetListTableIgnoreQueryFilterQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly ITableRepository _tableRepository;

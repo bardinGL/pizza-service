@@ -25,7 +25,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Products.Queries.GetLis
 			var query = _productRepository.GetListAsNoTracking(
 				x => (request.GetListProductDto.Name == null || x.Name.Contains(request.GetListProductDto.Name))
 				&& (request.GetListProductDto.Description == null || x.Description.Contains(request.GetListProductDto.Description))
-				&& (request.GetListProductDto.Price == null || x.Price == request.GetListProductDto.Price),
+				&& (request.GetListProductDto.Price == null || x.Price == request.GetListProductDto.Price)
+				&& (request.GetListProductDto.CategoryId == null || x.CategoryId == request.GetListProductDto.CategoryId),
 				includeProperties: request.GetListProductDto.includeProperties);
 			var entities = await query
 				.OrderBy(request.GetListProductDto.SortBy)

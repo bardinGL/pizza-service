@@ -25,7 +25,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Payments.Queries.GetLis
 			var query = _PaymentRepository.GetListAsNoTracking(
 				x => (request.GetListPaymentDto.Amount == null || x.Amount == request.GetListPaymentDto.Amount)
 				&& (request.GetListPaymentDto.PaymentMethod == null || x.PaymentMethod == request.GetListPaymentDto.PaymentMethod)
-				&& (request.GetListPaymentDto.Status == null || x.Status.Contains(request.GetListPaymentDto.Status)),
+				&& (request.GetListPaymentDto.Status == null || x.Status.Contains(request.GetListPaymentDto.Status))
+				&& (request.GetListPaymentDto.OrderId == null || x.OrderId == request.GetListPaymentDto.OrderId),
 				includeProperties: request.GetListPaymentDto.includeProperties);
 			var entities = await query
 				.OrderBy(request.GetListPaymentDto.SortBy)

@@ -24,7 +24,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.OptionItems.Queries.Get
 		{
 			var query = _optionitemRepository.GetListAsNoTracking(
 				x => (request.GetListOptionItemDto.Name == null || x.Name.Contains(request.GetListOptionItemDto.Name))
-				&& (request.GetListOptionItemDto.AdditionalPrice == null || x.AdditionalPrice == request.GetListOptionItemDto.AdditionalPrice),
+				&& (request.GetListOptionItemDto.AdditionalPrice == null || x.AdditionalPrice == request.GetListOptionItemDto.AdditionalPrice)
+				&& (request.GetListOptionItemDto.OptionId == null || x.OptionId == request.GetListOptionItemDto.OptionId),
 				includeProperties: request.GetListOptionItemDto.includeProperties);
 			var entities = await query
 				.OrderBy(request.GetListOptionItemDto.SortBy)

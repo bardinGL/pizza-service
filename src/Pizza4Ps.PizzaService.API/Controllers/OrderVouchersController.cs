@@ -10,7 +10,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.OrderVouchers.Commands.Upda
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/order-vouchers")]
 	[ApiController]
 	public class OrderVouchersController : ControllerBase
 	{

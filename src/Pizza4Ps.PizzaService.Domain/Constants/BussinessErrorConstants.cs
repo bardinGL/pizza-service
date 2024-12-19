@@ -2,17 +2,46 @@
 {
 	public static class BussinessErrorConstants
 	{
-        public class BookingErrorConstant
+		public class ProductOptionErrorConstant
+		{
+			public const string PRODUCTOPTION_NOT_FOUND = "Product option không tìm thấy";
+		}
+        public class StaffScheduleErrorConstant
         {
-            public const string BOOKING_NOT_FOUND = "Bàn đặt không tìm thấy";
+            public const string STAFFSCHEDULE_NOT_FOUND = "Lịch làm việc nhân viên không tìm thấy";
         }
 
-        public class CategoryErrorConstant
+        public class StaffZoneScheduleErrorConstant
         {
-            public const string CATEGORY_NOT_FOUND = "Danh mujc không tìm thấy";
+            public const string STAFFZONESCHEDULE_NOT_FOUND = "Lịch làm việc nhân viên theo khu vực không tìm thấy";
         }
 
-        public class ProductErrorConstant
+        public class WorkingTimeErrorConstant
+		{
+			public const string WORKINGTIME_NOT_FOUND = "Working time không tìm thấy";
+		}
+
+		public class TableBookingErrorConstant
+		{
+			public const string TABLEBOOKING_NOT_FOUND = "Table booking không tìm thấy";
+		}
+
+		public class BookingErrorConstant
+		{
+			public const string BOOKING_NOT_FOUND = "Bàn đặt không tìm thấy";
+		}
+
+		public class OrderVoucherErrorConstant
+		{
+			public const string ORDERVOUCHER_NOT_FOUND = "Order voucher không tìm thấy";
+		}
+
+		public class CategoryErrorConstant
+		{
+			public const string CATEGORY_NOT_FOUND = "Danh mục không tìm thấy";
+		}
+
+		public class ProductErrorConstant
 		{
 			public const string PRODUCT_NOT_FOUND = "Món ăn không tìm thấy";
 		}
@@ -62,19 +91,19 @@
 			public const string STAFF_NOT_FOUND = "Nhân viên không tìm thấy";
 		}
 
-        public class VoucherErrorConstant
-        {
-            public const string VOUCHER_NOT_FOUND = "Voucher không tìm thấy";
-        }
+		public class VoucherErrorConstant
+		{
+			public const string VOUCHER_NOT_FOUND = "Voucher không tìm thấy";
+		}
 
-        public class TableErrorConstant
-        {
-            public const string TABLE_NOT_FOUND = "Bàn không tìm thấy";
-        }
+		public class TableErrorConstant
+		{
+			public const string TABLE_NOT_FOUND = "Bàn không tìm thấy";
+		}
 
-        public class StaffZoneErrorConstant
-        {
-            public const string STAFFZONE_NOT_FOUND = "Khu vực nhân viên không tìm thấy";
-        }
-    }
+		public class StaffZoneErrorConstant
+		{
+			public const string STAFFZONE_NOT_FOUND = "Khu vực nhân viên không tìm thấy";
+		}
+	}
 }

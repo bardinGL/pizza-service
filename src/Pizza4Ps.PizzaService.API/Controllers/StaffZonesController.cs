@@ -13,7 +13,8 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Queries.GetStaff
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-    [Route("api/staffzones")]
+
+    [Route("api/staff-zones")]
     [ApiController]
     public class StaffZonesController : ControllerBase
     {

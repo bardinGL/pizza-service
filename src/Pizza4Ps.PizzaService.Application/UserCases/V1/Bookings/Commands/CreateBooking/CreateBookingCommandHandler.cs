@@ -21,10 +21,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Bookings.Commands.Creat
 				request.CreateBookingDto.BookingDate,
 				request.CreateBookingDto.GuestCount,
 				request.CreateBookingDto.Status,
-				request.CreateBookingDto.CustomerId,
-				request.CreateBookingDto.TableBookingId
-
-				);
+				request.CreateBookingDto.CustomerId);
 			return new CreateBookingCommandResponse
 			{
 				Id = result

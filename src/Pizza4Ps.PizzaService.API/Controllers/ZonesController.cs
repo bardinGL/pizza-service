@@ -13,7 +13,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.Zones.Queries.GetZoneById;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/zones")]
     [ApiController]
     public class ZonesController : ControllerBase
     {
