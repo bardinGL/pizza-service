@@ -35,6 +35,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZoneSchedules.Quer
                 && (request.GetListStaffZoneScheduleDto.Note == null || x.Note == request.GetListStaffZoneScheduleDto.Note)
                 && (request.GetListStaffZoneScheduleDto.StaffId == null || x.StaffId == request.GetListStaffZoneScheduleDto.StaffId)
                 && (request.GetListStaffZoneScheduleDto.ZoneId == null || x.ZoneId == request.GetListStaffZoneScheduleDto.ZoneId)
+                && (request.GetListStaffZoneScheduleDto.WorkingTimeId == null || x.WorkingTimeId == request.GetListStaffZoneScheduleDto.WorkingTimeId)
 
                 ,
                 includeProperties: request.GetListStaffZoneScheduleDto.includeProperties);

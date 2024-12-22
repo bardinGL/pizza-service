@@ -11,5 +11,6 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZoneSchedules
         public string? Note { get; set; }
         public Guid? StaffId { get; set; }
         public Guid? ZoneId { get; set; }
+        public Guid? WorkingTimeId { get; set; }
     }
 }

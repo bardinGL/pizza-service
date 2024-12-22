@@ -21,7 +21,9 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZoneSchedules.Comm
                 request.UpdateStaffZoneScheduleDto.ShiftEnd,
                 request.UpdateStaffZoneScheduleDto.Note,
                 request.UpdateStaffZoneScheduleDto.StaffId,
-                request.UpdateStaffZoneScheduleDto.ZoneId);
+                request.UpdateStaffZoneScheduleDto.ZoneId,
+                request.UpdateStaffZoneScheduleDto.WorkingTimeId
+                );
             return new UpdateStaffZoneScheduleCommandResponse
             {
                 Id = result

@@ -1,9 +1,4 @@
 ﻿using Pizza4Ps.PizzaService.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZoneSchedules
 {
@@ -16,8 +11,10 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZoneSchedules
         public string Note { get; set; }
         public Guid StaffId { get; set; }
         public Guid ZoneId { get; set; }
+        public Guid WorkingTimeId { get; set; }
 
         public virtual Staff Staff { get; set; }
         public virtual Zone Zone { get; set; }
+        public virtual WorkingTime WorkingTime { get; set; }
     }
 }

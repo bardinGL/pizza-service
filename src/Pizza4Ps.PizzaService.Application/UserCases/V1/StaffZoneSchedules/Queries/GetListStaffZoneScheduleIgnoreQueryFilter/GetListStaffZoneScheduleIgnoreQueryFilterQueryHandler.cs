@@ -28,6 +28,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZoneSchedules.Quer
                 && (request.GetListStaffZoneScheduleIgnoreQueryFilterDto.Note == null || x.Note == request.GetListStaffZoneScheduleIgnoreQueryFilterDto.Note)
                 && (request.GetListStaffZoneScheduleIgnoreQueryFilterDto.StaffId == null || x.StaffId == request.GetListStaffZoneScheduleIgnoreQueryFilterDto.StaffId)
                 && (request.GetListStaffZoneScheduleIgnoreQueryFilterDto.ZoneId == null || x.ZoneId == request.GetListStaffZoneScheduleIgnoreQueryFilterDto.ZoneId)
+                && (request.GetListStaffZoneScheduleIgnoreQueryFilterDto.WorkingTimeId == null || x.WorkingTimeId == request.GetListStaffZoneScheduleIgnoreQueryFilterDto.WorkingTimeId)
 
                     && x.IsDeleted == request.GetListStaffZoneScheduleIgnoreQueryFilterDto.IsDeleted);
             var entities = await query
