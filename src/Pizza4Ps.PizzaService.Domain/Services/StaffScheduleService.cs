@@ -13,35 +13,35 @@ namespace Pizza4Ps.PizzaService.Domain.Services
     public class StaffScheduleService : DomainService, IStaffScheduleService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IStaffScheduleRepository _StaffScheduleRepository;
+        private readonly IStaffScheduleRepository _staffScheduleRepository;
 
-        public StaffScheduleService(IUnitOfWork unitOfWork, IStaffScheduleRepository StaffScheduleRepository)
+        public StaffScheduleService(IUnitOfWork unitOfWork, IStaffScheduleRepository staffScheduleRepository)
         {
             _unitOfWork = unitOfWork;
-            _StaffScheduleRepository = StaffScheduleRepository;
+            _staffScheduleRepository = staffScheduleRepository;
         }
 
         public async Task<Guid> CreateAsync(DateTimeOffset schedualDate, TimeSpan shiftStart, TimeSpan shiftEnd, ConfigEnum status, Guid staffId, Guid zoneId)
         {
             var entity = new StaffSchedule(Guid.NewGuid(), schedualDate, shiftStart, shiftEnd, status, staffId, zoneId);
-            _StaffScheduleRepository.Add(entity);
+            _staffScheduleRepository.Add(entity);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
         }
 
         public async Task DeleteAsync(List<Guid> ids, bool IsHardDeleted = false)
         {
-            var entities = await _StaffScheduleRepository.GetListAsTracking(x => ids.Contains(x.Id)).IgnoreQueryFilters().ToListAsync();
+            var entities = await _staffScheduleRepository.GetListAsTracking(x => ids.Contains(x.Id)).IgnoreQueryFilters().ToListAsync();
             if (!entities.Any()) throw new ServerException(ServerErrorConstants.NOT_FOUND);
             foreach (var entity in entities)
             {
                 if (IsHardDeleted)
                 {
-                    _StaffScheduleRepository.HardDelete(entity);
+                    _staffScheduleRepository.HardDelete(entity);
                 }
                 else
                 {
-                    _StaffScheduleRepository.SoftDelete(entity);
+                    _staffScheduleRepository.SoftDelete(entity);
                 }
             }
             await _unitOfWork.SaveChangeAsync();
@@ -49,18 +49,18 @@ namespace Pizza4Ps.PizzaService.Domain.Services
 
         public async Task RestoreAsync(List<Guid> ids)
         {
-            var entities = await _StaffScheduleRepository.GetListAsTracking(x => ids.Contains(x.Id)).IgnoreQueryFilters().ToListAsync();
+            var entities = await _staffScheduleRepository.GetListAsTracking(x => ids.Contains(x.Id)).IgnoreQueryFilters().ToListAsync();
             if (entities == null) throw new ServerException(ServerErrorConstants.NOT_FOUND);
             foreach (var entity in entities)
             {
-                _StaffScheduleRepository.Restore(entity);
+                _staffScheduleRepository.Restore(entity);
             }
             await _unitOfWork.SaveChangeAsync();
         }
 
         public async Task<Guid> UpdateAsync(Guid id, DateTimeOffset schedualDate, TimeSpan shiftStart, TimeSpan shiftEnd, ConfigEnum status, Guid staffId, Guid zoneId)
         {
-            var entity = await _StaffScheduleRepository.GetSingleByIdAsync(id);
+            var entity = await _staffScheduleRepository.GetSingleByIdAsync(id);
             entity.UpdateStaffSchedule(schedualDate, shiftStart, shiftEnd, status, staffId, zoneId);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
