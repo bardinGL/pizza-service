@@ -1,4 +1,6 @@
-﻿using Pizza4Ps.PizzaService.Domain.Entities;
+﻿using Pizza4Ps.PizzaService.Application.DTOs.Staffs;
+using Pizza4Ps.PizzaService.Application.DTOs.WorkingTimes;
+using Pizza4Ps.PizzaService.Application.DTOs.Zones;
 
 namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZoneSchedules
 {
@@ -13,8 +15,8 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZoneSchedules
         public Guid ZoneId { get; set; }
         public Guid WorkingTimeId { get; set; }
 
-        public virtual Staff Staff { get; set; }
-        public virtual Zone Zone { get; set; }
-        public virtual WorkingTime WorkingTime { get; set; }
+        public virtual StaffDto Staff { get; set; }
+        public virtual ZoneDto Zone { get; set; }
+        public virtual WorkingTimeDto WorkingTime { get; set; }
     }
 }
