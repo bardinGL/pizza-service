@@ -29,5 +29,16 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             StaffId = staffId;
             ZoneId = zoneId;
         }
+
+        public void UpdateStaffSchedule(DateTimeOffset schedualDate, TimeSpan shiftStart, TimeSpan shiftEnd, ConfigEnum status, Guid staffId, Guid zoneId)
+        {
+            SchedualDate = SchedualDate;
+            ShiftStart = shiftStart;
+            ShiftEnd = shiftEnd;
+            Status = status;
+            StaffId = staffId;
+            ZoneId = zoneId;
+
+        }
     }
 }

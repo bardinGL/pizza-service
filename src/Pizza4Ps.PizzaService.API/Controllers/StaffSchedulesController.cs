@@ -2,35 +2,34 @@
 using Microsoft.AspNetCore.Mvc;
 using Pizza4Ps.PizzaService.API.Constants;
 using Pizza4Ps.PizzaService.API.Models;
-using Pizza4Ps.PizzaService.Application.DTOs.StaffZones;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Commands.CreateStaffZone;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Commands.DeleteStaffZone;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Commands.RestoreStaffZone;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Commands.UpdateStaffZone;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Queries.GetListStaffZone;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Queries.GetListStaffZoneIgnoreQueryFilter;
-using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Queries.GetStaffZoneById;
+using Pizza4Ps.PizzaService.Application.DTOs.StaffSchedules;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffSchedules.Commands.CreateStaffSchedule;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffSchedules.Commands.DeleteStaffSchedule;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffSchedules.Commands.RestoreStaffSchedule;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffSchedules.Commands.UpdateStaffSchedule;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffSchedules.Queries.GetListStaffSchedule;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffSchedules.Queries.GetListStaffScheduleIgnoreQueryFilter;
+using Pizza4Ps.PizzaService.Application.UserCases.V1.StaffSchedules.Queries.GetStaffScheduleById;
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-
-    [Route("api/staff-zones")]
+    [Route("api/staff-schedules")]
     [ApiController]
-    public class StaffZonesController : ControllerBase
+    public class StaffSchedulesController : ControllerBase
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ISender _sender;
 
-        public StaffZonesController(IHttpContextAccessor httpContextAccessor, ISender sender)
+        public StaffSchedulesController(ISender sender, IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor;
             _sender = sender;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromBody] CreateStaffZoneDto request)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateStaffScheduleDto request)
         {
-            var result = await _sender.Send(new CreateStaffZoneCommand { CreateStaffZoneDto = request });
+            var result = await _sender.Send(new CreateStaffScheduleCommand { CreateStaffScheduleDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -40,9 +39,9 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         }
 
         [HttpGet("ignore-filter")]
-        public async Task<IActionResult> GetListIgnoreQueryFilterAsync([FromQuery] GetListStaffZoneIgnoreQueryFilterDto query)
+        public async Task<IActionResult> GetListIgnoreQueryFilterAsync([FromQuery] GetListStaffScheduleIgnoreQueryFilterDto query)
         {
-            var result = await _sender.Send(new GetListStaffZoneIgnoreQueryFilterQuery { GetListStaffZoneIgnoreQueryFilterDto = query });
+            var result = await _sender.Send(new GetListStaffScheduleIgnoreQueryFilterQuery { GetListStaffScheduleIgnoreQueryFilterDto = query });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -52,9 +51,9 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         }
 
         [HttpGet()]
-        public async Task<IActionResult> GetListAsync([FromQuery] GetListStaffZoneDto query)
+        public async Task<IActionResult> GetListAsync([FromQuery] GetListStaffScheduleDto query)
         {
-            var result = await _sender.Send(new GetListStaffZoneQuery { GetListStaffZoneDto = query });
+            var result = await _sender.Send(new GetListStaffScheduleQuery { GetListStaffScheduleDto = query });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -66,7 +65,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingleByIdAsync([FromRoute] Guid id)
         {
-            var result = await _sender.Send(new GetStaffZoneByIdQuery { Id = id });
+            var result = await _sender.Send(new GetStaffScheduleByIdQuery { Id = id });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -76,9 +75,9 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateStaffZoneDto request)
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateStaffScheduleDto request)
         {
-            var result = await _sender.Send(new UpdateStaffZoneCommand { Id = id, UpdateStaffZoneDto = request });
+            var result = await _sender.Send(new UpdateStaffScheduleCommand { Id = id, UpdateStaffScheduleDto = request });
             return Ok(new ApiResponse
             {
                 Result = result,
@@ -90,7 +89,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpPut("restore")]
         public async Task<IActionResult> RestoreManyAsync(List<Guid> ids)
         {
-            await _sender.Send(new RestoreStaffZoneCommand { Ids = ids });
+            await _sender.Send(new RestoreStaffScheduleCommand { Ids = ids });
             return Ok(new ApiResponse
             {
                 Message = Message.RESTORE_SUCCESS,
@@ -101,7 +100,7 @@ namespace Pizza4Ps.PizzaService.API.Controllers
         [HttpDelete()]
         public async Task<IActionResult> DeleteManyAsync(List<Guid> ids, bool isHardDeleted = false)
         {
-            await _sender.Send(new DeleteStaffZoneCommand { Ids = ids, isHardDelete = isHardDeleted });
+            await _sender.Send(new DeleteStaffScheduleCommand { Ids = ids, isHardDelete = isHardDeleted });
             return Ok(new ApiResponse
             {
                 Message = Message.DELETED_SUCCESS,

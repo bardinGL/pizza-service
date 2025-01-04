@@ -13,7 +13,7 @@ using Pizza4Ps.PizzaService.Application.UserCases.V1.WorkingTimes.Queries.GetWor
 
 namespace Pizza4Ps.PizzaService.API.Controllers
 {
-	[Route("api/workingtimes")]
+	[Route("api/working-times")]
 	[ApiController]
 	public class WorkingTimesController : ControllerBase
 	{

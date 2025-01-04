@@ -6,8 +6,17 @@
 		{
 			public const string PRODUCTOPTION_NOT_FOUND = "Product option không tìm thấy";
 		}
+        public class StaffScheduleErrorConstant
+        {
+            public const string STAFFSCHEDULE_NOT_FOUND = "Lịch làm việc nhân viên không tìm thấy";
+        }
 
-		public class WorkingTimeErrorConstant
+        public class StaffZoneScheduleErrorConstant
+        {
+            public const string STAFFZONESCHEDULE_NOT_FOUND = "Lịch làm việc nhân viên theo khu vực không tìm thấy";
+        }
+
+        public class WorkingTimeErrorConstant
 		{
 			public const string WORKINGTIME_NOT_FOUND = "Working time không tìm thấy";
 		}
