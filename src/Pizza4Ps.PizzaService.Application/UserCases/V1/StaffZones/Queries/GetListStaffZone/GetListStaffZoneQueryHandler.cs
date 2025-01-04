@@ -23,8 +23,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Queries.GetL
         public async Task<GetListStaffZoneQueryResponse> Handle(GetListStaffZoneQuery request, CancellationToken cancellationToken)
         {
             var query = _StaffZoneRepository.GetListAsNoTracking(
-                x => (request.GetListStaffZoneDto.WorkDate == null || x.WorkDate == request.GetListStaffZoneDto.WorkDate)
-                && (request.GetListStaffZoneDto.ShiftStart == null || x.ShiftStart == request.GetListStaffZoneDto.ShiftStart)
+                x => (request.GetListStaffZoneDto.ShiftStart == null || x.ShiftStart == request.GetListStaffZoneDto.ShiftStart)
                 && (request.GetListStaffZoneDto.ShiftEnd == null || x.ShiftEnd == request.GetListStaffZoneDto.ShiftEnd)
                 && (request.GetListStaffZoneDto.Note == null || x.Note == request.GetListStaffZoneDto.Note)
                 && (request.GetListStaffZoneDto.StaffId == null || x.StaffId == request.GetListStaffZoneDto.StaffId)

@@ -7,7 +7,7 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZoneSchedules
     public class StaffZoneScheduleDto
     {
         public Guid Id { get; set; }
-        public DateOnly DayofWeek { get; set; }
+        public int DayofWeek { get; set; }
         public TimeOnly ShiftStart { get; set; }
         public TimeOnly ShiftEnd { get; set; }
         public string Note { get; set; }

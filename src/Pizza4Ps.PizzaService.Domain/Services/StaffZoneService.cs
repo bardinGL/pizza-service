@@ -20,9 +20,9 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             _staffZoneRepository = staffZoneRepository;
         }
 
-        public async Task<Guid> CreateAsync(DateOnly workDate, TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
+        public async Task<Guid> CreateAsync(TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
         {
-            var entity = new StaffZone(Guid.NewGuid(), workDate, shiftStart, shiftEnd, note, staffId, zoneId);
+            var entity = new StaffZone(Guid.NewGuid(), shiftStart, shiftEnd, note, staffId, zoneId);
             _staffZoneRepository.Add(entity);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
@@ -57,10 +57,10 @@ namespace Pizza4Ps.PizzaService.Domain.Services
             await _unitOfWork.SaveChangeAsync();
         }
 
-        public async Task<Guid> UpdateAsync(Guid id, DateOnly workDate, TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
+        public async Task<Guid> UpdateAsync(Guid id, TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
         {
             var entity = await _staffZoneRepository.GetSingleByIdAsync(id);
-            entity.UpdateStaffZone(workDate, shiftStart, shiftEnd, note, staffId, zoneId);
+            entity.UpdateStaffZone(shiftStart, shiftEnd, note, staffId, zoneId);
             await _unitOfWork.SaveChangeAsync();
             return entity.Id;
         }

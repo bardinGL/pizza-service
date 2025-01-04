@@ -22,8 +22,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Queries.GetL
         {
             var query = _StaffZoneRepository.GetListAsNoTracking(includeProperties: request.GetListStaffZoneIgnoreQueryFilterDto.includeProperties).IgnoreQueryFilters()
                 .Where(
-                x => (request.GetListStaffZoneIgnoreQueryFilterDto.WorkDate == null || x.WorkDate == request.GetListStaffZoneIgnoreQueryFilterDto.WorkDate)
-                && (request.GetListStaffZoneIgnoreQueryFilterDto.ShiftStart == null || x.ShiftStart == request.GetListStaffZoneIgnoreQueryFilterDto.ShiftStart)
+                x => (request.GetListStaffZoneIgnoreQueryFilterDto.ShiftStart == null || x.ShiftStart == request.GetListStaffZoneIgnoreQueryFilterDto.ShiftStart)
                 && (request.GetListStaffZoneIgnoreQueryFilterDto.ShiftEnd == null || x.ShiftEnd == request.GetListStaffZoneIgnoreQueryFilterDto.ShiftEnd)
                 && (request.GetListStaffZoneIgnoreQueryFilterDto.Note == null || x.Note == request.GetListStaffZoneIgnoreQueryFilterDto.Note)
                 && (request.GetListStaffZoneIgnoreQueryFilterDto.StaffId == null || x.StaffId == request.GetListStaffZoneIgnoreQueryFilterDto.StaffId)

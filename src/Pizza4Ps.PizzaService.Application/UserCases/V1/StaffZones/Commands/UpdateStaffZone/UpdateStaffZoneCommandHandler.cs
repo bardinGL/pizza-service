@@ -16,7 +16,6 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.StaffZones.Commands.Upd
         {
             var result = await _StaffZoneService.UpdateAsync(
                 request.Id,
-                request.UpdateStaffZoneDto.WorkDate,
                 request.UpdateStaffZoneDto.ShiftStart,
                 request.UpdateStaffZoneDto.ShiftEnd,
                 request.UpdateStaffZoneDto.Note,

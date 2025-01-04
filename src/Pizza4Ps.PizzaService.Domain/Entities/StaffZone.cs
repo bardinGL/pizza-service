@@ -4,7 +4,6 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
 {
     public class StaffZone : EntityAuditBase<Guid>
     {
-        public DateOnly WorkDate { get; set; }
         public TimeOnly ShiftStart { get; set; }
         public TimeOnly ShiftEnd { get; set; }
         public string Note { get; set; }
@@ -18,10 +17,9 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
         {
         }
 
-        public StaffZone(Guid id, DateOnly workDate, TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
+        public StaffZone(Guid id, TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
         {
             Id = id;
-            WorkDate = workDate;
             ShiftStart = shiftStart;
             ShiftEnd = shiftEnd;
             Note = note;
@@ -29,9 +27,8 @@ namespace Pizza4Ps.PizzaService.Domain.Entities
             ZoneId = zoneId;
         }
 
-        public void UpdateStaffZone(DateOnly workDate, TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
+        public void UpdateStaffZone(TimeOnly shiftStart, TimeOnly shiftEnd, string note, Guid staffId, Guid zoneId)
         {
-            WorkDate = workDate;
             ShiftStart = shiftStart;
             ShiftEnd = shiftEnd;
             Note = note;

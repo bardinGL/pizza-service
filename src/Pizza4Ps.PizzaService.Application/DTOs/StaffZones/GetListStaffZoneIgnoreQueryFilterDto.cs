@@ -5,7 +5,6 @@ namespace Pizza4Ps.PizzaService.Application.DTOs.StaffZones
 	public class GetListStaffZoneIgnoreQueryFilterDto : PaginatedRequestDto
 	{
 		public bool IsDeleted { get; set; } = false;
-		public DateOnly? WorkDate { get; set; }
 		public TimeOnly? ShiftStart { get; set; }
 		public TimeOnly? ShiftEnd { get; set; }
 		public string? Note { get; set; }

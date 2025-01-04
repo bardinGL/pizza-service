@@ -37,7 +37,7 @@ namespace Pizza4Ps.PizzaService.Persistence.Constants
 		internal const string ProductOption = nameof(ProductOption);
 		internal const string ScheduleConfig = nameof(ScheduleConfig);
 		internal const string Staff = nameof(Staff);
-		internal const string StaffSchedule = nameof(StaffSchedule);
+		internal const string StaffZoneSchedule = nameof(StaffZoneSchedule);
 		internal const string StaffScheduleLog = nameof(StaffScheduleLog);
 		internal const string StaffZone = nameof(StaffZone);
 		internal const string Table = nameof(Table);

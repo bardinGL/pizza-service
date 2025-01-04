@@ -2,7 +2,6 @@
 {
 	public class UpdateStaffZoneDto
 	{
-		public DateOnly WorkDate { get; set; }
 		public TimeOnly ShiftStart { get; set; }
 		public TimeOnly ShiftEnd { get; set; }
 		public string Note { get; set; }
