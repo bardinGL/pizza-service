@@ -18,6 +18,7 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Commands.Updat
 				request.Id!.Value,
 				request.Code,
 				request.DiscountType,
+				request.Amount,
 				request.ExpiryDate,
 				request.VoucherTypeId);
 		}

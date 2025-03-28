@@ -7,7 +7,8 @@ namespace Pizza4Ps.PizzaService.Application.UserCases.V1.Vouchers.Queries.GetLis
     public class GetListVoucherQuery : PaginatedQuery<PaginatedResultDto<VoucherDto>>
     {
         public string? Code { get; set; }
-        public DiscountTypeEnum? DiscountType { get; set; }
+        public string? DiscountType { get; set; }
+        public decimal? Amount { get; set; }
         public DateTime? ExpiryDate { get; set; }
         public Guid? VoucherTypeId { get; set; }
     }

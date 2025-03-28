@@ -206,6 +206,7 @@
         public class VoucherErrorConstant
         {
             public const string VOUCHER_NOT_FOUND = "Voucher not found";
+            public const string INVALID_VOUCHER_DISCOUNT_TYPE = "Voucher discount type is invalid";
         }
 
         public class VoucherTypeErrorConstant
